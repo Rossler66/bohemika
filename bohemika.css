@@ -1,0 +1,1074 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+*{
+    border:0;
+    padding: 0;
+    margin: 0;
+    font-family: 'Blinker', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+
+h1{
+    font-size: 46px;
+    line-height: 1.2; 
+
+}
+
+h2{
+    font-size: 24px;
+    line-height: 1.2; 
+}
+
+h2 img{
+    height: 20px;
+    margin: -5px -10px 0 0;
+    padding: 10px;
+    float: right;
+    border-radius: 5px;
+    width: auto !important;
+    min-height: 20px !important;    
+}
+
+
+h3{
+    font-size: 21px;
+    font-weight: 400;
+}
+
+h3 img{
+    height: 20px;
+    margin: -5px -10px 0 0;
+    padding: 10px;
+    float: right;
+    border-radius: 5px;
+    width: auto !important;
+    min-height: 20px !important;    
+}
+
+p{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+p.text_L{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+#editbod{
+    position: fixed;
+    bottom:10px;
+    right:10px;
+    display: block;
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+}
+
+
+.block{
+    width:100%;   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    min-height: 40px;
+}
+
+.container{
+    width: 1440px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+
+.pole{
+    position:relative;
+    overflow: hidden;
+    top:0;
+    transition: all 1.0s ease-in;
+    min-height: 40px;
+    margin-left:1%;
+    margin-right:1%;
+}
+
+
+
+.block_info .pole p:first-of-type{
+    font-size: 46px;
+    font-weight: 600;
+    margin-bottom: -25px;
+}
+
+.block_info .pole p{
+    font-size: 16px;
+}
+
+
+.pole.zoom{
+    cursor:pointer;
+}
+
+.pole.zoom:hover{    transform:scale(1.1) !important;
+}
+
+.pole h1{
+    margin: 60px 30px 40px 30px;
+}
+
+
+.pole h2{
+    margin: 40px 30px 40px 30px;
+}
+
+.pole h3{
+    margin: 20px 30px 20px 30px;
+}
+
+.pole p{
+    margin: 30px;
+}
+
+
+.pole1.poleL{
+    width:98%;
+}
+
+.pole1.poleM{
+    width:86%;
+}
+
+.pole1.poleS{
+    width:74%;
+}
+
+
+.pole2.poleL{
+    width: 48%;   
+}
+
+.pole2.poleM{
+    width: 42%;   
+}
+
+.pole2.poleS{
+    width: 36%;   
+}
+
+
+
+.pole3.poleL{
+    width:31.3%;    
+}
+
+.pole3.poleM{
+    width:27.3%;    
+}
+
+.pole3.poleS{
+    width:23.3%;    
+}
+
+/*
+.pole4+.pole4{
+    margin-left: 2%;
+}
+*/
+
+.pole4.poleL{
+    width:23%;
+}
+
+
+.pole4.poleM{
+    width:20%;
+}
+
+.pole4.poleS{
+    width:17%;
+}
+
+.pole img{
+    width:100%;
+    min-height: 40px;
+}
+
+.pole a.odkaz{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width: 100%;
+}
+
+.editace .pole a.odkaz{
+    height: 0;
+}
+
+
+.nav{
+    font-size: 12px;
+}
+
+input{
+    font-size: 18px;
+    font-weight: 400;
+    padding: 5px 15px;
+    margin: 5px 0 10px;
+    border-radius: 5px;
+}
+
+input[type="radio"]{
+    margin:10px;
+}
+
+select{
+    font-size: 18px;
+    font-weight: 400;
+    padding: 5px 15px;
+    margin: 5px 0 10px;
+    border-radius: 5px;
+}
+
+
+textarea{
+    width:100%;
+    height:150px;
+    margin: 5px 0 10px;
+    border-radius: 5px;
+}
+
+.tlacitko{
+    font-weight: 300;
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-bottom: 3px;
+    box-shadow: 2px 2px 5px #bbb;
+    display: block;
+    text-decoration: none;
+}
+
+.tlacitko:hover{
+    box-shadow: none;
+}
+
+.dialog{
+    position: fixed;
+    top: 20%;
+    left: calc(50% - 210px);
+    width: 420px;
+    z-index: 10;
+}
+
+.formular{
+    box-shadow: 3px 3px 5px #6666;
+    padding: 20px;
+}
+
+.formular h2{
+    margin: -20px -20px 20px -20px;
+    padding: 10px 20px;
+}
+
+.tlacpas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top:20px;
+}
+
+.volbysez{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.volbysez a{
+    height: 40px;
+    display: block;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.volbysez img{
+    min-height: 20px;
+    width: auto;
+    padding: 10px 15px 15px 15px;
+}
+
+td .volbysez a{
+    height: 30px;
+}
+
+td .volbysez img{
+    min-height: 20px;
+    width: auto;
+    padding: 5px 10px 10px 10px;
+}
+
+.seznam{
+    width:100%; 
+    border-collapse: collapse;
+}
+
+.seznam th{
+    height: 40px;
+    border-bottom: 1px solid #ecebe8;
+    padding: 0px 5px;
+    font-weight: 300;
+}
+
+.seznam td{
+    height:40px;
+    border-bottom: 1px solid #ecebe8;
+    padding: 0px 5px;
+}
+
+.seznam tr{
+    transition: all 0.3s ease-in;
+
+}
+
+.cookiesnas{
+    position: fixed;
+    bottom:0;
+    width:100vw;
+    z-index: 20;
+}
+
+
+
+.coktext{
+    width:calc(100% - 300px);
+    float:left;
+    padding: 0 50px 0 0;
+}
+
+.cokvolby{
+    width:200px;
+    float:left;
+    padding: 30px 0 0 0;
+}
+
+.cokvolby .tlacitko{
+    box-shadow: none;
+    border:1px solid white;
+    text-align: center;
+}
+
+/****************************************************************************/*
+
+.stin{
+    box-shadow:3px 2px 8px #66666666;
+}
+
+
+.tal{
+    text-align: left;
+}
+.tac{
+    text-align: center;
+}
+.tar{
+    text-align: right;
+}
+
+.txs_xs{
+    font-size:14px;
+    font-weight: 300;
+}
+
+.txs_s{
+    font-size:16px;
+    font-weight: 400;
+}
+
+.txs_m{
+    font-size:18px;
+    font-weight: 400;
+}
+
+.txs_l{
+    font-size:22px;
+    font-weight: 500;
+}
+
+.txs_xl{
+    font-size:26px;
+    font-weight: 600;
+}
+
+.txs_xxl{
+    font-size:50px;
+    font-weight: 700;
+}
+
+.fl{
+    float:left;
+}
+
+.fr{
+    float:right;
+}
+
+.fc{
+    clear: both;
+}
+
+.disn{
+    display: none;
+    
+}
+
+/****************************************************************************/*
+/*.stranka_hlava{*/
+
+.block.logo{
+    background-image: url(./img/linka_horni.svg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size:auto 48px;
+    /*    background-size: cover;*/
+    height: 90px;
+}
+
+.block.logo .container{
+    height:100%;
+}
+
+.block.logo .container .pole{
+    height: 100%;
+    overflow: inherit;
+}
+
+img.logo{
+    height: 70px;
+    margin-top: 35px;
+    margin-left: 40px;
+    width: auto;
+    position: absolute;
+    z-index: 100;    
+}
+
+
+.block.menu{
+    background-image: url(./img/linka_dolni.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45px;
+    position: sticky;
+    top: 0;
+    z-index: 10;    
+}
+
+.block.menu .pole{
+}
+
+.menu_pas{
+    float:right;
+    margin-right: 10px;
+}
+
+.menu_pas a{
+    text-decoration: none;
+    padding: 10px  10px;
+    display: inline-block;
+}
+
+.menu .menu_pas a{
+    margin-top:5px;
+}
+
+
+.block_hlava{
+    background-image: url(./img/pozadi.svg);
+    /* background-attachment: inherit; */
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 135px);
+    overflow: hidden;
+}
+
+.block_hlava .pole{
+    /*    height: calc(100% - 200px);*/
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.block_oblasti{
+    height:680px;
+}
+
+.block_oblasti .pole{
+    height: 610px;
+    margin-top: 2%;
+}
+
+
+.block_standard{
+    padding-bottom: 60px;    
+}
+
+.block_standard .pole{
+    margin-top: 2%;
+    transform:scale(1);
+}
+
+.block_info .pole{
+    margin-top: 2%;
+}
+
+.pole.banvolby{
+    top:-170px;
+    height:150px;
+}
+
+
+.block_info{
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+}
+
+.pole_info{
+    padding-top: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;    
+}
+
+.block_pata{
+    padding: 70px 0;
+}
+
+.block_pata a{
+    display:block;
+    text-decoration: none;
+    margin: 15px 30px;
+}
+
+.pole.zmensi{
+    transform:scale(0.3);
+}
+
+.banvolby img{
+    display:none;
+}
+
+.banvolby p{
+    display: none;
+
+}
+
+.provozovna{
+    height:400px;
+}
+
+.pro_mesto{
+    color: white;
+    background-color: #7bc2f5;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px 20px 0px 20px;
+}
+
+.pro_ulice{
+    color: white;
+    background-color: #7bc2f5;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0px 20px 10px 20px;
+}
+
+.pro_zastupce{
+    color: #666;
+    font-size: 24px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.pro_telefon{
+    font-size: 14px;
+    color: #666;
+    margin: 5px 20px;
+    padding: 0px 0 0 30px;
+    background-image: url(./img/iko_telefon.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position-y: 3px;
+}
+
+.pro_email{
+    font-size: 14px;    
+    color: #666;
+    margin: 5px 20px;
+    padding: 0px 0 0 30px;
+    background-image: url(./img/iko_email.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position-y: 3px;
+}
+
+.pro_poznamka{
+    font-size: 14px;    
+    color: #666;
+    margin: 15px 20px 5px 20px;
+    padding: 0px 0 0 30px;
+    background-image: url(./img/iko_poznamka.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position-y: 3px;
+}
+
+.pro_doba{
+    font-size: 14px;
+    color: #666;
+    margin: 5px 20px;
+    padding: 0px 0 0 0px;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position-y: 3px;
+}
+
+.pro_doba div{
+    font-size: 12px;
+    float: left;
+    width: 20px;
+}
+
+.provozovna .tlacpas{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+.provozovna .tlacpas a{
+    text-decoration: none;
+    color: #7bc2f5;
+}
+
+@media (min-width:1920px) {
+    .block{
+        margin-left: calc(50% - 960px);
+        width:1920px;
+    }
+    /*    .stranka_hlava{*/
+    .block_hlava{
+        background-size: 1920px auto;
+        background-repeat: no-repeat;
+    }
+}
+
+
+@media (max-width:1440px) {
+
+
+    .pole3.poleL{
+        width: 48%;   
+    }
+
+    .pole3.poleM{
+        width: 42%;   
+    }
+
+    .pole3.poleS{
+        width: 36%;   
+    }
+
+
+
+    .block.logo{
+        /*        background-position: -240px 0;        */
+    }
+
+    .block.menu{
+        background-position: calc(100% + 300px) bottom;        
+    }
+
+
+    /*    .stranka_hlava{*/
+    .block_hlava{
+        background-size:  auto 100%;
+    }
+
+
+}
+
+@media (max-width:1024px) {
+
+    h1{
+        font-size: 36px;
+    }
+
+
+
+    .pole4.poleL{
+        width: 49%;   
+    }
+
+
+    .pole4.poleM{
+        width: 43%;   
+    }
+
+    .pole4.poleS{
+        width: 37%;   
+    }
+
+    .pole h2{
+        margin: 20px 30px 20px 30px;        
+    }
+
+    .pole.banvolby{
+        top:-190px;
+        height: 100px;
+    }
+    .block_oblasti{
+        height: 1280px;
+    }
+
+    .block.logo{
+        background-position: calc(100% + 450px) top;        
+    }
+
+
+
+
+}
+
+
+@media (max-width:768px) {
+
+
+
+    .pole2.poleL{
+        width:100%;
+    }
+
+    .pole2.poleM{
+        width:88%;
+    }
+
+    .pole2.poleS{
+        width:76%;
+    }
+    .pole2{
+        margin-left: 0% !important;
+    }
+
+
+    .pole3.poleL{
+        width:100%;
+    }
+
+    .pole3.poleM{
+        width:88%;
+    }
+
+    .pole3.poleS{
+        width:76%;
+    }
+    .pole3{
+        margin-left: 0% !important;
+    }
+
+
+
+    .pole4.poleL{
+        width:100%;
+    }
+
+    .pole4.poleM{
+        width:88%;
+    }
+
+    .pole4.poleS{
+        width:76%;
+    }
+    .block_oblasti .pole{
+        height: auto;
+    }
+    .pole4{
+        margin-left: 0% !important;
+    }
+
+
+    .block_hlava{
+        height:calc(100vh + 30px);
+    }
+
+    .pole.banvolby{
+        top:-330px;
+        height:auto;
+    }
+
+
+    .block.logo{
+        background-position: calc(100% + 860px) top;        
+    }
+
+    .block.menu{
+        background-position: calc(100% + 390px) bottom;        
+    }
+
+    .block.logo  .menu_pas{
+        width: 250px;
+        min-height: 40px;
+        background-image: url(./img/iko_volby.svg);
+        background-position: 196px 3px;
+        background-repeat: no-repeat;
+        background-size: auto 35px;
+        padding-top: 40px;
+        z-index: 20;
+        position: relative;        
+    }
+
+    .block.logo .menu_pas:hover a{
+        display:block;
+    }
+
+    .block.logo .menu_pas a{
+        width:100%;
+        background-color: #3e99d9;
+        border-bottom: 1px solid #ddd;
+        display: none;
+    }
+
+    img.logo{
+        margin-top: 15px;
+    }
+
+    .block_hlava .pole{
+        height: auto;
+        display: block;
+    }    
+
+    .block_oblasti{
+        height: 2900px;
+    }
+    /*
+        #hlava_img{
+            margin-top: -12%;
+        }
+    */    
+    .cookiesnas{
+        width:calc(100vw - 20px);
+        padding: 20px 10px;
+
+    }
+
+    .coktext{
+        width:100%;
+        padding: 20px 0px;
+
+    }
+
+    .cokvolby{
+        width:200px;
+        margin-left:calc(50% - 100px);
+    }
+
+
+}
+
+
+@media (max-width:425px) {
+
+    .block_oblasti{
+        height: 2300px;
+    }
+}
+
+
+@media (max-width:320px) {
+
+}
+
+
+
+/********************************************/
+.editace{
+    border-bottom:3px solid red;
+}
+
+.editpanel{
+    position: fixed;
+    z-index: 50;
+    top: 50px;
+    right: 50px;
+    display: none;
+    background-color: #ffffff;
+    box-shadow: 1px 3px 8px #6666;
+    padding: 20px;
+}
+
+.editpanel .barvapole div{
+    width:20px;
+    height:20px;
+    display: block;
+    float:left;
+    border:1px solid #666;
+    margin-right: 2px;
+    text-align: center;
+}
+
+.editpanel .barvapole div:hover{
+    border:1px solid #0f0;
+}
+
+.editpanel p.nadpis{
+    padding-top: 10px;
+    clear: both;
+}
+
+.editpanel .typ p{
+    font-size: 12px;
+    font-weight: 400;
+    border: 1px solid #666;
+    margin: 0 0 2px 0;
+    padding: 1px 10px;
+    color: #000;
+    cursor:pointer;
+}
+
+.editpanel .typ p:hover{
+    border:1px solid #0f0;
+}
+.editpanel img{
+    width: 10px;
+    padding: 5px;
+    border: 1px solid #666;
+    margin: 2px;
+    cursor:pointer;
+    height:12px;
+}
+
+.editpanel img:hover{
+    border:1px solid #0f0;
+}
+
+
+.upload{
+    border:1px dashed #3e99d9;
+    width:100%;
+    height: 60px;
+}
+
+.editpanel input{
+    padding: 3px 5px;
+    border:1px solid #666;
+    width:100%;
+}
+
+.ikoedit{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 50;
+    background-size:50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor:pointer;
+
+}
+
+.pridejblok{
+    left: calc(50% - 20px);
+    top: -20px;
+    background-image:url(./img/iko_plus_blok.svg);
+
+}
+
+.upravblok{
+    right: 20px;
+    top:calc(50% - 20px);
+    background-image:url(./img/iko_edit.svg);
+}
+
+
+.pridejpole{
+    right: 65px;
+    top:calc(50% - 20px);
+    background-image:url(./img/iko_plus_pole.svg);
+}
+
+
+.upravpole{
+    right: -10px;
+    top: calc(50% - 20px);
+    background-image:url(./img/iko_edit.svg);
+}
+
+.pridejprvek{
+    left: calc(50% + 25px);
+    bottom: -10px;
+    background-image:url(./img/iko_plus.svg);
+}
+
+.upravprvek{
+    right: -10px;
+    top: calc(50% - 20px);
+    background-image:url(./img/iko_edit.svg);
+}
+
+
+.editstranka{
+    position:fixed;
+    bottom:50px;
+    display:none;
+    right:50px;
+    z-index: 50;
+    box-shadow: 1px 3px 8px #6666;
+    padding: 15px;
+}
+
+.editstranka img{
+    height:20px;
+    padding:5px;
+    float:left;
+    margin:2px;
+    border:1px solid #666;
+}
+
+.editstranka img:hover{
+    border:1px solid #0f0;
+}
+
+.editstranka input{
+    padding: 3px 5px;
+    border:1px solid #666;
+    width:calc(100% - 23px);
+    margin: 0px 2px;
+}
+
+
+.nabidka{
+    position:fixed;
+    right:50px;
+    bottom:50px;
+    display:none;
+    padding:30px;
+    background:white;
+}
+
+
+.nabidka table td{
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    cursor:pointer;
+}
+
