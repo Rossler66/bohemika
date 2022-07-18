@@ -2,7 +2,7 @@
 
 class stranka_tem {
 
-    public function hlavicka($param) {
+    public function hlavickaZacatek($param) {
         echo '<html>';
         echo '   <head>';
         echo '       <meta charset="utf-8">';
@@ -10,6 +10,9 @@ class stranka_tem {
         echo '       <link href="bohemika.css" rel="stylesheet" type="text/css">';
         echo '       <link href="bohemikabarvy.css" rel="stylesheet" type="text/css">';
         echo '       <title></title>';
+    }
+
+    public function hlavickaKonec($param) {
         echo '   </head>';
         echo '<body>';
     }

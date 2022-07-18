@@ -8,14 +8,19 @@ and open the template in the editor.
 session_start();
 include( 'db.php' );
 db::dbs();
-include ('cookies/cookies_pre.php');
-$cokPre = new cookies_pre();
-$cokPre->start();
 
 
 include ('stranka/stranka_pre.php');
 $strankaPre = new stranka_pre();
+include ('cookies/cookies_pre.php');
+$cokPre = new cookies_pre();
+
+
 $strankaPre->vstup($_SERVER['QUERY_STRING']);
+$strankaPre->hlavickaZacatek(null);
+$cokPre->start();
+$strankaPre->hlavickaKonec(null);
+
 $strankaPre->vypis();
 $strankaPre->paticka(null);
 

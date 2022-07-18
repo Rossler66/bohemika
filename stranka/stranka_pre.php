@@ -52,14 +52,20 @@ class stranka_pre extends presenter {
         }
     }
 
+    public function hlavickaZacatek($param){
+        $this->template->hlavickaZacatek(null);
+    }
+
+    public function hlavickaKonec($param){
+        $this->template->hlavickaKonec(null);
+    }
+
     public function vypis() {
         if (array_key_exists("cook", $this->par) && $this->par["cook"] == "set") {
             $cookTem = $this->vratObjekt("cookies", "cookies_tem", "cookies_tem");
             $cookTem->cokNastav();
         }
-        
-        
-        $this->template->hlavicka(null);
+
         echo '<div class="stranka" id="stranka">';
         $this->zahlavi(null);
         if ($this->pre == "stranka") {
