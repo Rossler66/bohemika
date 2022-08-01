@@ -87,12 +87,17 @@ class stranka_tem {
         echo '<h2>Blok</h2>';
         echo '  <div class="barvapole">';
         echo '      <p class="txs_xs nadpis">Pozadí</p>';
-        echo '      <div style="background-color:#FFF"; barva="transaprent" onclick="nastavBarvuPozadi(event);">X</div>';
-        echo '      <div style="background-color:#FFF"; barva="bila" onclick="nastavBarvuPozadi(event);"></div>';
-        echo '      <div style="background-color:#ecebe8"; barva="seda" onclick="nastavBarvuPozadi(event);"></div>';
-        echo '      <div style="background-color:#7bc2f5"; barva="bledemodra" onclick="nastavBarvuPozadi(event);"></div>';
-        echo '      <div style="background-color:#005897"; barva="tmavomodra" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#FFFFFF00"; barva="transaprent" onclick="nastavBarvuPozadi(event);">X</div>';
+        echo '      <div style="background-color:#FFFFFFFF"; barva="bila" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#ecebe8FF"; barva="seda" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#7bc2f5FF"; barva="bledemodra" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#005897FF"; barva="tmavomodra" onclick="nastavBarvuPozadi(event);"></div>';
+
+
         echo '  </div>';
+        echo '<p class="txs_xs nadpis">Přetažením nahraj obrázek</p>';
+        echo '<div class="upload" jmp="stranka" pre="stranka" fce="obrazekpole" ondrop="nahrajSoubor(event);"></div>';
+
         echo '  <p class="txs_xs nadpis">Typ pole</p>';
         echo '  <div class="typ">';
         echo '      <p typ="hlava" onclick="nastavTypBloku(event);">Hlava</p>';
@@ -116,6 +121,22 @@ class stranka_tem {
         echo '<div style="background-color:#ecebe8"; barva="seda" onclick="nastavBarvuPozadi(event);"></div>';
         echo '<div style="background-color:#7bc2f5"; barva="bledemodra" onclick="nastavBarvuPozadi(event);"></div>';
         echo '<div style="background-color:#005897"; barva="tmavomodra" onclick="nastavBarvuPozadi(event);"></div>';
+
+        echo '      <div style="background-color:#FFFFFFC0"; barva="bila3" onclick="nastavBarvuPozadi(event);" class="fc"></div>';
+        echo '      <div style="background-color:#ecebe8C0"; barva="seda3" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#7bc2f5C0"; barva="bledemodra3" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#005897C0"; barva="tmavomodra3" onclick="nastavBarvuPozadi(event);"></div>';
+
+        echo '      <div style="background-color:#FFFFFF80"; barva="bila2" onclick="nastavBarvuPozadi(event);" class="fc"></div>';
+        echo '      <div style="background-color:#ecebe880"; barva="seda2" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#7bc2f580"; barva="bledemodra2" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#00589780"; barva="tmavomodra2" onclick="nastavBarvuPozadi(event);"></div>';
+
+        echo '      <div style="background-color:#FFFFFF40"; barva="bila1" onclick="nastavBarvuPozadi(event);" class="fc"></div>';
+        echo '      <div style="background-color:#ecebe840"; barva="seda1" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#7bc2f540"; barva="bledemodra1" onclick="nastavBarvuPozadi(event);"></div>';
+        echo '      <div style="background-color:#00589740"; barva="tmavomodra1" onclick="nastavBarvuPozadi(event);"></div>';
+
         echo '</div>';
         echo '<div class=barvapole>';
         echo '<p class="txs_xs nadpis">Rámeček</p>';

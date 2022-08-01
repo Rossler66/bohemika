@@ -157,6 +157,18 @@ class stranka_pre extends presenter {
         echo "]}";
     }
 
+    public function obrazekpole($data) {
+        $souborSer = $this->vratObjekt("soubor", "soubor_ser", "soubor_ser");
+        $soubor = $souborSer->nahraj($data);
+
+        $vys = array('typ' => 'souborpole', 'data' => $soubor);
+        $json = json_encode($vys);
+        echo '{"token":[';
+        echo $json;
+        echo "]}";
+    }
+
+
     public function paticka($param) {
         echo '<div id="editbod" jmp="uzivatel" pre="uzivatel" fce="prihlaseni" onclick="posli(event);"></div>';
         echo '<div id="dialog"></div>';

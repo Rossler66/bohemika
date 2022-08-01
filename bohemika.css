@@ -88,6 +88,9 @@ p.text_L {
     align-content: flex-start;
 }
 
+.block_hlava .container{
+    align-content: center;
+}
 
 .pole {
     position: relative;
@@ -263,7 +266,7 @@ textarea {
     top: 20%;
     left: calc(50% - 210px);
     width: 420px;
-    z-index: 10;
+    z-index: 50;
 }
 
 .formular {
@@ -429,7 +432,7 @@ td .volbysez img {
 }
 
 /****************************************************************************/
-*
+
     /*.stranka_hlava{*/
 .block.logo {
     background-image: url(./img/linka_horni.svg);
@@ -437,7 +440,7 @@ td .volbysez img {
     background-repeat: no-repeat;
     background-size: auto 48px;
     /*    background-size: cover;*/
-    height: 90px;
+    height: 50px;
 }
 
 .block.logo .container {
@@ -450,8 +453,8 @@ td .volbysez img {
 }
 
 img.logo {
-    height: 70px;
-    margin-top: 35px;
+    height: 40px;
+    margin-top: 25px;
     margin-left: 40px;
     width: auto;
     position: absolute;
@@ -502,8 +505,7 @@ img.logo:hover {
 
 
 .block_hlava {
-    background-image: url(./img/pozadi.svg);
-    /* background-attachment: inherit; */
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     height: calc(100vh - 135px);
@@ -512,7 +514,7 @@ img.logo:hover {
 
 .block_hlava .pole {
     /*    height: calc(100% - 200px);*/
-    height: 100%;
+    /*height: 100%;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -754,6 +756,10 @@ img.logo:hover {
 
     .block.logo {
         background-position: calc(100% + 450px) top;
+    }
+
+    .block_hlava .container{
+        align-content: flex-start;
     }
 
 
@@ -1048,6 +1054,7 @@ img.logo:hover {
     z-index: 50;
     box-shadow: 1px 3px 8px #6666;
     padding: 15px;
+    border-radius: 5px;
 }
 
 .editstranka img {
@@ -1056,6 +1063,8 @@ img.logo:hover {
     float: left;
     margin: 2px;
     border: 1px solid #666;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .editstranka img:hover {
@@ -1086,3 +1095,6 @@ img.logo:hover {
     cursor: pointer;
 }
 
+
+
+/**************************************************************************************************/

@@ -249,7 +249,19 @@ function nastavBarvuPozadi(evt) {
     editObj.classList.remove("bcg_seda");
     editObj.classList.remove("bcg_bledemodra");
     editObj.classList.remove("bcg_tmavomodra");
-    editObj.classList.remove("bcg_transaprent");
+    editObj.classList.remove("bcg_transparent");
+    editObj.classList.remove("bcg_bila3");
+    editObj.classList.remove("bcg_seda3");
+    editObj.classList.remove("bcg_bledemodra3");
+    editObj.classList.remove("bcg_tmavomodra3");
+    editObj.classList.remove("bcg_bila2");
+    editObj.classList.remove("bcg_seda2");
+    editObj.classList.remove("bcg_bledemodra2");
+    editObj.classList.remove("bcg_tmavomodra2");
+    editObj.classList.remove("bcg_bila1");
+    editObj.classList.remove("bcg_seda1");
+    editObj.classList.remove("bcg_bledemodra1");
+    editObj.classList.remove("bcg_tmavomodra1");
     editObj.classList.add(barva);
 }
 
@@ -547,6 +559,12 @@ function upravNadpis(edOb) {
 function souborDoStranky(data) {
     editObj.src = data.cesta;
 }
+
+function souborDoPole(data) {
+    var styl = ' background-image: url('+data.cesta+');';
+    editObj.setAttribute("style",styl);
+}
+
 
 function editRadek(element) {
     //	var pozice = vratPoziciAbs(element);

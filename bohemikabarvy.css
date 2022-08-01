@@ -90,6 +90,54 @@ textarea{
     background-color: transparent !important;
 }
 
+.bcg_bila3{
+    background-color: #ffffffc0;
+}
+
+.bcg_seda3{
+    background-color: #ecebe8c0;
+}
+
+.bcg_bledemodra3{
+    background-color: #7bc2f5c0;
+}
+
+.bcg_tmavomodra3{
+    background-color: #005897c0;
+}
+
+.bcg_bila2{
+    background-color: #ffffff80;
+}
+
+.bcg_seda2{
+    background-color: #ecebe880;
+}
+
+.bcg_bledemodra2{
+    background-color: #7bc2f580;
+}
+
+.bcg_tmavomodra2{
+    background-color: #00589780;
+}
+
+.bcg_bila1{
+    background-color: #ffffff40;
+}
+
+.bcg_seda1{
+    background-color: #ecebe840;
+}
+
+.bcg_bledemodra1{
+    background-color: #7bc2f540;
+}
+
+.bcg_tmavomodra1{
+    background-color: #00589740;
+}
+
 .col_bila{
     color: #ffffff;
 }
@@ -157,33 +205,31 @@ textarea{
 }
 
 .pridejblok{
-    background-color: #00970596;
 }
 
 .upravblok{
-    background-color: #003c97aa;
 }
 
 
 .pridejpole{
-    background-color: #00970596;
 }
 
 
 .upravpole{
-    background-color: #003c97aa;
 }
 
 .pridejprvek{
-    background-color: #00970596;
 }
 
 .upravprvek{
-    background-color: #003c97aa;
+}
+
+.ikoedit{
+    background-color: #f3cc3d85;
 }
 
 .editstranka{
-    background-color: #a5ff80;
+    background-color: #f3cc3d;
 }
 
 .nabidka table tr:hover{

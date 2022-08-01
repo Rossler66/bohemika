@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="4f864ecf-9622-41eb-b102-477aeb40cdc2" name="Bohemika" url="http://ftpx.forpsi.com">
+      <webServer id="4f864ecf-9622-41eb-b102-477aeb40cdc2" name="Bohemika (project level)" url="http://ftpx.forpsi.com">
         <fileTransfer rootFolder="/www" host="ftpx.forpsi.com" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

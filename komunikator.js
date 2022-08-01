@@ -39,6 +39,10 @@ function PosliPozadavek(Param)
                         souborDoStranky(token.data);
                     }
 
+                    if (token.typ === "souborpole") {
+                        souborDoPole(token.data);
+                    }
+
                     if (token.typ === "stranka") {
                         location.href = token.data;
                     }
