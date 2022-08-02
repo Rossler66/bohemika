@@ -156,16 +156,33 @@ class stranka_tem {
         echo '<div style="background-color:#FFF"; hodnota="---" onclick="nastavZoom(event);">X</div>';
         echo '<div style="background-color:#FFF"; hodnota="zoom" onclick="nastavZoom(event);">A</div>';
         echo '</div>';
+
+        echo '<div class=barvapole>';
         echo '<p class="txs_xs fc nadpis">Počet polí na šířku / šířka pole</p>';
-        echo '<div class="typ">';
-        echo '<p typ="pole1" onclick="nastavPocetPole(event);">Počet 1</p>';
-        echo '<p typ="pole2" onclick="nastavPocetPole(event);">Počet 2</p>';
-        echo '<p typ="pole3" onclick="nastavPocetPole(event);">Počet 3</p>';
-        echo '<p typ="pole4" onclick="nastavPocetPole(event);">Počet 4</p>';
-        echo '<p typ="poleS" onclick="nastavSirkaPole(event);">Šířka S</p>';
-        echo '<p typ="poleM" onclick="nastavSirkaPole(event);">Šířka M</p>';
-        echo '<p typ="poleL" onclick="nastavSirkaPole(event);">Šířka L</p>';
+        echo '<div typ="pole1" onclick="nastavPocetPole(event);">1</div>';
+        echo '<div typ="pole2" onclick="nastavPocetPole(event);">2</div>';
+        echo '<div typ="pole3" onclick="nastavPocetPole(event);">3</div>';
+        echo '<div typ="pole4" onclick="nastavPocetPole(event);">4</div><p class="fl"> - </p>';
+        echo '<div typ="poleS" onclick="nastavSirkaPole(event);">S</div>';
+        echo '<div typ="poleM" onclick="nastavSirkaPole(event);">M</div>';
+        echo '<div typ="poleL" onclick="nastavSirkaPole(event);">L</div>';
         echo '</div>';
+
+        echo '<div class=barvapole>';
+        echo '<p class="txs_xs fc nadpis">Výška pole</p>';
+        echo '<div hodnota="---" onclick="nastavVyskaPole(event);">x</div>';
+        echo '<div hodnota="pole_v1" onclick="nastavVyskaPole(event);">1</div>';
+        echo '<div hodnota="pole_v2" onclick="nastavVyskaPole(event);">2</div>';
+        echo '<div hodnota="pole_v3" onclick="nastavVyskaPole(event);">3</div>';
+        echo '<div hodnota="pole_v4" onclick="nastavVyskaPole(event);">4</div>';
+        echo '<div hodnota="pole_v5" onclick="nastavVyskaPole(event);">5</div>';
+        echo '<div hodnota="pole_v6" onclick="nastavVyskaPole(event);">6</div>';
+        echo '<div hodnota="pole_v7" onclick="nastavVyskaPole(event);">7</div>';
+        echo '<div hodnota="pole_v8" onclick="nastavVyskaPole(event);">8</div>';
+        echo '<div hodnota="pole_v9" onclick="nastavVyskaPole(event);">9</div>';
+        echo '</div>';
+
+
         echo '<p class="txs_xs nadpis">Odkaz</p>';
         echo '<img src="img/iko_edit.svg" onclick="nabOdkazy(event);">';
         echo '  <img src="img/iko_zavrit.svg" onclick="odkazSmaz(event);" />';

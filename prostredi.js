@@ -1,9 +1,66 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+const blok_oblasti = document.getElementsByClassName("block_oblasti");
+const blok_standard = document.getElementsByClassName("block_standard");
+var blok_oblasti_observer = [];
+var blok_standard_observer = [];
 
+const oblOptions = {
+    root: null,
+    threshold: [0.1]
+};
+
+const standardOptions = {
+    root: null,
+    threshold: [0.25]
+};
+
+for(var ii = 0; ii < blok_oblasti.length; ii++){
+    blok_oblasti_observer[ii] = new IntersectionObserver(call_oblasti, oblOptions);
+    blok_oblasti_observer[ii].observe(blok_oblasti[ii]);
+}
+
+for(var ii = 0; ii < blok_standard.length; ii++){
+    blok_standard_observer[ii] = new IntersectionObserver(call_standard, standardOptions);
+    blok_standard_observer[ii].observe(blok_standard[ii]);
+}
+
+
+function call_oblasti(entries) {
+    const [entry] = entries;
+    console.log(entry);
+
+    var pole = entries[0].target.getElementsByClassName("pole");
+    if (entry.isIntersecting && entry.intersectionRatio < 1) {
+        for (var ii = 0; ii < pole.length; ii++) {
+            pole[ii].classList.remove("banvolby");
+        }
+
+    } else {
+        for (var ii = 0; ii < pole.length; ii++) {
+            pole[ii].classList.add("banvolby");
+        }
+    }
+}
+
+function call_standard(entries) {
+    const [entry] = entries;
+    console.log(entry);
+
+    var pole = entries[0].target.getElementsByClassName("zoom");
+    if (entry.isIntersecting && entry.intersectionRatio < 1) {
+        for (var ii = 0; ii < pole.length; ii++) {
+            pole[ii].classList.remove("zmensi");
+        }
+
+    } else {
+        for (var ii = 0; ii < pole.length; ii++) {
+            pole[ii].classList.add("zmensi");
+        }
+    }
+}
+
+
+
+/*
 const blok_oblasti = document.getElementById("oblasti");
 const blok_uziti = document.getElementById("uziti");
 
@@ -57,7 +114,7 @@ function call_uziti(entries) {
     }
 }
 
-
+*/
 function zavridialog(evt) {
     if (evt.srcElement) {
         vstupElement = evt.srcElement;

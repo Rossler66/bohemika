@@ -442,6 +442,30 @@ function nastavPocetPole(evt) {
 
 }
 
+function nastavVyskaPole(evt) {
+    var aktBlok;
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    var hodnota = aktBlok.getAttribute("hodnota");
+    if (!hodnota) {
+        return;
+    }
+    editObj.classList.remove("pole_v1");
+    editObj.classList.remove("pole_v2");
+    editObj.classList.remove("pole_v3");
+    editObj.classList.remove("pole_v4");
+    editObj.classList.remove("pole_v5");
+    editObj.classList.remove("pole_v6");
+    editObj.classList.remove("pole_v7");
+    editObj.classList.remove("pole_v8");
+    editObj.classList.remove("pole_v9");
+    if (hodnota != "---") {
+        editObj.classList.add(hodnota);
+    }
+}
+
+
 function nastavSirkaPole(evt) {
     var aktBlok;
     if (evt.srcElement) {
@@ -500,7 +524,8 @@ function pridejText(evt) {
 function pridejMapu(evt){
     var addPrvek = document.createElement("IFRAME");
     addPrvek.classList.add("prvek");
-    addPrvek.src = "https://www.google.com/maps/d/u/4/embed?mid=1wQGyZeagyxXI9NW0e5K5Y32GHuA&amp;ehbc=2E312F";
+//    addPrvek.src = "https://www.google.com/maps/d/u/4/embed?mid=1wQGyZeagyxXI9NW0e5K5Y32GHuA&amp;ehbc=2E312F";
+    addPrvek.src = "https://www.google.com/maps/d/embed?mid=1wQGyZeagyxXI9NW0e5K5Y32GHuA&ehbc=2E312F";
     addPrvek.style="width:100%;height:800px";
     editObj.appendChild(addPrvek);
 }
