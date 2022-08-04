@@ -9,6 +9,11 @@ session_start();
 include( 'db.php' );
 db::dbs();
 
+include ('form/form_ser.php');
+$formSer = new form_ser();
+$frmPar["nazev"] = $_SERVER['QUERY_STRING'];
+$frmPar["polozky"] = $_POST;
+$formSer->ulozForm($frmPar);
 
 include ('stranka/stranka_pre.php');
 $strankaPre = new stranka_pre();

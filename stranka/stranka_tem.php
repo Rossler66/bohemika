@@ -98,7 +98,7 @@ class stranka_tem {
         echo '<p class="txs_xs nadpis">Přetažením nahraj obrázek</p>';
         echo '<div class="upload" jmp="stranka" pre="stranka" fce="obrazekpole" ondrop="nahrajSoubor(event);"></div>';
 
-        echo '  <p class="txs_xs nadpis">Typ pole</p>';
+        echo '  <p class="txs_xs nadpis">Typ bloku</p>';
         echo '  <div class="typ">';
         echo '      <p typ="hlava" onclick="nastavTypBloku(event);">Hlava</p>';
         echo '      <p typ="oblasti" onclick="nastavTypBloku(event);">Volby</p>';
@@ -203,6 +203,8 @@ class stranka_tem {
         echo '      <p onclick="pridejNadpis(event);">Nadpis</p>';
         echo '      <p onclick="pridejText(event);">Text</p>';
         echo '      <p onclick="pridejMapu(event);">Mapa</p>';
+        echo '      <p onclick="pridejInput(event);">Formulářovou položku</p>';
+        echo '      <p onclick="pridejTlacitko(event);">Tlačítko odeslat</p>';
         echo '  </div>';
         echo '  <p class="txs_xs nadpis">Posum / smazání</p>';
         echo '  <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
@@ -217,6 +219,58 @@ class stranka_tem {
         echo '<img src="img/iko_dolu.svg" onclick="blokDolu(event);">';
         echo '<img src="img/iko_smaz.svg" onclick="blokSmaz(event);">';
         echo '  <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
+        echo '</div>';
+
+
+        echo '<div class="editpanel formular" id="editinput">';
+        echo '    <h2>Form. položka</h2>';
+        echo '    <p class="txs_xs nadpis">Typ položky</p>';
+        echo '    <div class="typ">';
+        echo '        <p hodnota="text" onclick="nastavTypInput(event);">Text</p>';
+        echo '        <p hodnota="number" onclick="nastavTypInput(event);">Číslo</p>';
+        echo '        <p hodnota="date" onclick="nastavTypInput(event);">Datum</p>';
+        echo '        <p hodnota="email" onclick="nastavTypInput(event);">Email</p>';
+        echo '        <p hodnota="password" onclick="nastavTypInput(event);">Heslo</p>';
+        echo '        <p hodnota="checkbox" onclick="nastavTypInput(event);">ANO / NE</p>';
+        echo '    </div>';
+        echo '    <p class="txs_xs nadpis">Název položky</p>';
+        echo '    <input type="text" onchange="inputnadpis(event);">';
+        echo '    <div class=barvapole>';
+        echo '        <p class="txs_xs nadpis">Povinné</p>';
+        echo '        <div style="background-color:#FFF"; hodnota="N" onclick="nastavRequired(event);">X</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="A" onclick="nastavRequired(event);">A</div>';
+        echo '    </div>';
+        echo '    <p class="txs_xs nadpis">Šířka položky</p>';
+        echo '    <div class="barvapole">';
+        echo '        <div style="background-color:#FFF"; hodnota="w25po" onclick="nastavSirkuInput(event);">S</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w50po" onclick="nastavSirkuInput(event);">M</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w75po" onclick="nastavSirkuInput(event);">L</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w100po" onclick="nastavSirkuInput(event);">XL</div>';
+        echo '    </div>';
+        echo '    <p class="txs_xs nadpis">Posum / smazání</p>';
+        echo '    <img src="img/iko_nahoru.svg" onclick="blokNahoruInput(event);">';
+        echo '    <img src="img/iko_dolu.svg" onclick="blokDoluInput(event);">';
+        echo '    <img src="img/iko_smaz.svg" onclick="blokSmazInput(event);">';
+        echo '    <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
+        echo '</div>';
+
+
+        echo '<div class="editpanel formular" id="edittlacitko">';
+        echo '    <h2>Form. tlačítko</h2>';
+        echo '    <p class="txs_xs nadpis">Popis tlačítka</p>';
+        echo '    <input type="text" onchange="tlacitkopopis(event);">';
+        echo '    <p class="txs_xs nadpis">Šířka položky</p>';
+        echo '    <div class="barvapole">';
+        echo '        <div style="background-color:#FFF"; hodnota="w25po" onclick="nastavSirkuInput(event);">S</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w50po" onclick="nastavSirkuInput(event);">M</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w75po" onclick="nastavSirkuInput(event);">L</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w100po" onclick="nastavSirkuInput(event);">XL</div>';
+        echo '    </div>';
+        echo '    <p class="txs_xs nadpis">Posum / smazání</p>';
+        echo '    <img src="img/iko_nahoru.svg" onclick="blokNahoruInput(event);">';
+        echo '    <img src="img/iko_dolu.svg" onclick="blokDoluInput(event);">';
+        echo '    <img src="img/iko_smaz.svg" onclick="blokSmazInput(event);">';
+        echo '    <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
         echo '</div>';
 
 

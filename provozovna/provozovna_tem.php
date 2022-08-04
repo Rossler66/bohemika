@@ -59,7 +59,6 @@ class provozovna_tem extends template {
         echo '              <div class="nav">Ulice a číslo popisné</div>';
         echo '              <input type="text" name="pro_ulice" value="' . $param["data"][0]["pro"]->ulice . '" />';
         echo '              <div class="nav">Telefon</div>';
-        //TODO přidat odkaz <a href="tel:http://+603487526">
         echo '              <input type="text" name="pro_telefon" value="' . $param["data"][0]["pro"]->telefon . '" />';
         echo '              <div class="nav">Email </div>';
         echo '              <input type="text" name="pro_email" value="' . $param["data"][0]["pro"]->email . '" />';
@@ -107,7 +106,7 @@ class provozovna_tem extends template {
             echo '<div class="pro_ulice">' . $rad["pro"]->ulice . '</div>';
             echo '<div class="pro_zastupce">' . $rad["pro"]->zastupce . '</div>';
             echo '<div class="pole pole2 poleL fl">';
-            echo '<div class="pro_telefon">' . $rad["pro"]->telefon . '</div>';
+            echo '<div class="pro_telefon"><a href="tel:http://'.$rad["pro"]->telefon.'">' . $rad["pro"]->telefon . '</div>';
             echo '<div class="pro_email">' . $rad["pro"]->email . '</div>';
             echo '<div class="pro_poznamka">' . $rad["pro"]->poznamka . '</div>';
             echo '</div>';

@@ -156,6 +156,26 @@ function blokDolu(evt) {
 
 }
 
+function blokNahoruInput(evt) {
+    var posBlok = editObj.parentNode;
+    var nadramec = posBlok.parentNode;
+    var pred = posBlok.previousElementSibling;
+    if (pred != null) {
+        var pomblok = nadramec.removeChild(posBlok);
+        nadramec.insertBefore(pomblok, pred);
+    }
+}
+
+function blokDoluInput(evt) {
+    var posBlok = editObj.parentNode;
+    var nadramec = posBlok.parentNode;
+    var po = posBlok.nextElementSibling;
+    if (po != null) {
+        po = po.nextElementSibling;
+        var pomblok = nadramec.removeChild(posBlok);
+        nadramec.insertBefore(pomblok, po);
+    }
+}
 
 function blokSmaz(evt) {
     if (!editObj) {
@@ -169,6 +189,20 @@ function blokSmaz(evt) {
     editObj = null;
     editpanel = null;
 }
+
+function blokSmazInput(evt) {
+    if (!editObj) {
+        return;
+    }
+    if (editpanel) {
+        editpanel.style.display = "none";
+    }
+
+    editObj.parentNode.remove();
+    editObj = null;
+    editpanel = null;
+}
+
 
 function upravBlok(evt) {
     var element;
@@ -345,9 +379,6 @@ function nastavZoom(evt) {
 
 function nastavTypBloku(evt) {
     var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
     if (evt.target) {
         aktBlok = evt.target;
     }
@@ -362,6 +393,20 @@ function nastavTypBloku(evt) {
     editObj.classList.add(typ);
 
 }
+
+function nastavTypInput(evt) {
+    var aktBlok;
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    var typ = aktBlok.getAttribute("hodnota");
+    if (!typ) {
+        return;
+    }
+    editObj.setAttribute("type",typ);
+
+}
+
 
 function pridejPole(evt) {
     var aktBlok;
@@ -485,6 +530,38 @@ function nastavSirkaPole(evt) {
 
 }
 
+function nastavSirkuInput(evt) {
+    var aktBlok;
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    var hodnota = aktBlok.getAttribute("hodnota");
+    if (!hodnota) {
+        return;
+    }
+    var divObj = editObj.parentElement;
+    divObj.classList.remove("w25po");
+    divObj.classList.remove("w50po");
+    divObj.classList.remove("w75po");
+    divObj.classList.remove("w100po");
+    divObj.classList.add(hodnota);
+
+}
+
+function nastavRequired(evt){
+    var aktBlok;
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    var hodnota = aktBlok.getAttribute("hodnota");
+    if (hodnota == "A") {
+        editObj.required = true;
+    }else{
+        editObj.required = false;
+
+    }
+}
+
 
 function pridejPrvek(evt) {
     zavriPanel();
@@ -530,6 +607,34 @@ function pridejMapu(evt){
     editObj.appendChild(addPrvek);
 }
 
+function pridejInput(evt) {
+    var form = editObj.getElementsByTagName("FORM")[0];
+    if(!form){
+        form = document.createElement("form");
+        form.setAttribute("action","");
+        form.setAttribute("method","POST");
+        editObj.appendChild(form);
+    }
+    var addPrvek = document.createElement("DIV");
+    addPrvek.classList.add("inputprvek");
+    addPrvek.classList.add("w50po");
+    addPrvek.innerHTML = '<div class="nav">Nadpis</div><input class="prvek" type="text" onkeydown="return event.key !=\'Enter\'"  />';
+    form.appendChild(addPrvek);
+}
+
+function pridejTlacitko(evt) {
+    var form = editObj.getElementsByTagName("FORM")[0];
+    if(!form){
+        form = document.createElement("form");
+        editObj.appendChild(form);
+    }
+    var addPrvek = document.createElement("DIV");
+    addPrvek.classList.add("inputprvek");
+    addPrvek.classList.add("w50po");
+    addPrvek.innerHTML = '<input class="prvek" type="submit" />';
+    form.appendChild(addPrvek);
+}
+
 function upravPrvek(evt) {
     var aktPrvek;
     if (evt.srcElement) {
@@ -553,6 +658,14 @@ function upravPrvek(evt) {
     }
     if (aktPrvek.tagName == "P") {
         upravText(aktPrvek);
+    }
+    if (aktPrvek.tagName == "INPUT") {
+        if(aktPrvek.getAttribute("type") == "submit"){
+            upravTlacitko(aktPrvek);
+        }else{
+            upravInput(aktPrvek);
+
+        }
     }
 }
 
@@ -641,6 +754,50 @@ function upravText(edOb) {
     editpanel.style.display = "block";
     editText(edOb);
 }
+
+function upravInput(edOb) {
+    zavriPanel();
+    editpanel = document.getElementById("editinput");
+    if (editObj) {
+        editObj.classList.remove("editace");
+    }
+    editObj = edOb;
+    editObj.classList.add("editace");
+    editpanel.style.display = "block";
+    var inp = editpanel.getElementsByTagName("INPUT")[0];
+    inp.value = editObj.previousElementSibling.innerHTML;
+
+}
+
+function upravTlacitko(edOb) {
+    zavriPanel();
+    editpanel = document.getElementById("edittlacitko");
+    if (editObj) {
+        editObj.classList.remove("editace");
+    }
+    editObj = edOb;
+    editObj.classList.add("editace");
+    editpanel.style.display = "block";
+    var inp = editpanel.getElementsByTagName("INPUT")[0];
+    inp.value = editObj.value;
+
+}
+
+function inputnadpis(evt){
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    editObj.previousElementSibling.innerHTML = aktBlok.value;
+    editObj.setAttribute("name",aktBlok.value);
+}
+
+function tlacitkopopis(evt){
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    editObj.value = aktBlok.value;
+}
+
 
 function editText(element) {
     var sirka = element.offsetWidth;

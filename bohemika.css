@@ -2,7 +2,7 @@
     border: 0;
     padding: 0;
     margin: 0;
-/*    font-family: 'Blinker', sans-serif;*/
+    /*    font-family: 'Blinker', sans-serif;*/
 }
 
 body {
@@ -86,7 +86,7 @@ p.text_L {
     align-content: flex-start;
 }
 
-.block_hlava .container{
+.block_hlava .container {
     align-content: center;
 }
 
@@ -100,7 +100,7 @@ p.text_L {
     margin-right: 1%;
 }
 
-.obsah .pole{
+.obsah .pole {
     margin-top: 1%;
     margin-bottom: 1%;
 }
@@ -200,31 +200,39 @@ p.text_L {
 }
 
 
-.pole_v1{
+.pole_v1 {
     height: 100px;
 }
-.pole_v2{
+
+.pole_v2 {
     height: 200px;
 }
-.pole_v3{
+
+.pole_v3 {
     height: 300px;
 }
-.pole_v4{
+
+.pole_v4 {
     height: 400px;
 }
-.pole_v5{
+
+.pole_v5 {
     height: 500px;
 }
-.pole_v6{
+
+.pole_v6 {
     height: 600px;
 }
-.pole_v7{
+
+.pole_v7 {
     height: 700px;
 }
-.pole_v8{
+
+.pole_v8 {
     height: 800px;
 }
-.pole_v9{
+
+.pole_v9 {
     height: 900px;
 }
 
@@ -241,7 +249,7 @@ p.text_L {
     width: 100%;
 }
 
-.pole iframe{
+.pole iframe {
     position: relative;
 }
 
@@ -254,17 +262,54 @@ p.text_L {
     font-size: 12px;
 }
 
+.pole form {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
 input {
     font-size: 18px;
     font-weight: 400;
     padding: 5px 15px;
     margin: 5px 0 10px;
     border-radius: 5px;
+    box-sizing: initial;
+}
+
+.inputprvek input {
+    width: calc(100% - 30px);
+}
+
+.inputprvek input[type="checkbox"] {
+    width: 115px;
+    height: 25px;
+    margin-top: 10px;
+}
+
+.inputprvek input[type="checkbox"]:after {
+    content: "ANO";
+
 }
 
 input[type="radio"] {
     margin: 10px;
 }
+
+input[type="submit"] {
+    background: lightskyblue;
+    color: white;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+input:required {
+    border-bottom: 1px solid red;
+}
+
 
 select {
     font-size: 18px;
@@ -294,6 +339,14 @@ textarea {
 
 .tlacitko:hover {
     box-shadow: none;
+}
+
+.inputprvek {
+    height: 65px;
+}
+
+.inputprvek .nav {
+    padding: 2px 0px;
 }
 
 .dialog {
@@ -468,7 +521,7 @@ td .volbysez img {
 
 /****************************************************************************/
 
-    /*.stranka_hlava{*/
+/*.stranka_hlava{*/
 .block.logo {
     background-image: url(./img/linka_horni.svg);
     background-position: top;
@@ -498,7 +551,7 @@ img.logo {
 }
 
 img.logo:hover {
-    transform: scale(1.4) ;
+    transform: scale(1.4);
 }
 
 
@@ -525,7 +578,8 @@ img.logo:hover {
     display: inline-block;
     border-radius: 0 20px 0 20px;
 }
-.menu .menu_pas{
+
+.menu .menu_pas {
     margin-top: 20px;
 }
 
@@ -792,7 +846,7 @@ img.logo:hover {
         background-position: calc(100% + 450px) top;
     }
 
-    .block_hlava .container{
+    .block_hlava .container {
         align-content: flex-start;
     }
 
@@ -1129,6 +1183,28 @@ img.logo:hover {
     cursor: pointer;
 }
 
+.w25po {
+    width: calc(25% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
 
+.w50po {
+    width: calc(50% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.w75po {
+    width: calc(75% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.w100po {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
 
 /**************************************************************************************************/
