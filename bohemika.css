@@ -576,21 +576,13 @@ img.logo:hover {
     text-decoration: none;
     padding: 8px 10px;
     display: inline-block;
-    border-radius: 0 20px 0 20px;
+    border-radius: 5px;
+    margin-left: 5px;
 }
-
-.menu .menu_pas {
-    margin-top: 20px;
-}
-
 
 .menu .menu_pas a {
-    margin-top: 5px;
-    color: #ffffff;
-    margin-left: 10px;
-    background: #0093ff;
+    color: #0078cd;
 }
-
 
 .block_hlava {
     background-attachment: fixed;
