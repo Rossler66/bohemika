@@ -11,11 +11,13 @@ var editpanel = null;
 
 
 function editmod() {
-    var editbod = document.getElementById("editbod");
-    var body = document.getElementsByTagName("body")[0];
-    var editstranka = document.getElementById("editstranka");
-    var nabidka = document.getElementById("nabidka");
-    var obsah = document.getElementById("obsah");
+    let editbod = document.getElementById("editbod");
+    let body = document.getElementsByTagName("body")[0];
+    let editstranka = document.getElementById("editstranka");
+    let nabidka = document.getElementById("nabidka");
+    let obsah = document.getElementById("obsah");
+    let smaz;
+    let blok;
 
     if (bEditace) {
         bEditace = false;
@@ -28,13 +30,12 @@ function editmod() {
         editpanel = null;
 
         
-        var smaz = document.getElementsByClassName("ikoedit");
-        var blok;
+        smaz = document.getElementsByClassName("ikoedit");
         while (smaz.length > 0) {
             blok = smaz[0].parentNode;
             blok.removeChild(smaz[0]);
         }
-        var smaz = document.getElementsByClassName("editace");
+        smaz = document.getElementsByClassName("editace");
         while (smaz.length > 0) {
             smaz[0].classList.remove("editace");
         }
@@ -44,14 +45,14 @@ function editmod() {
         body.addEventListener("dragover", nastavDrag);
         body.addEventListener("click", upravPrvek);
         editstranka.style.display="block";
-        var stranka = document.getElementById("obsah");
-        var inp = editstranka.getElementsByTagName("INPUT")[0];
+        let stranka = document.getElementById("obsah");
+        let inp = editstranka.getElementsByTagName("INPUT")[0];
         inp.value = stranka.getAttribute("nazev");
         
         obsah.classList.add("editace");
-        var bloky = obsah.getElementsByClassName("block");
-        var addDiv;
-        for (var ii = 0; ii < bloky.length; ii++) {
+        let bloky = obsah.getElementsByClassName("block");
+        let addDiv;
+        for (let ii = 0; ii < bloky.length; ii++) {
             addDiv = document.createElement("DIV");
             addDiv.classList.add("ikoedit");
             addDiv.classList.add("pridejblok");
@@ -70,8 +71,8 @@ function editmod() {
             addDiv.addEventListener("click", pridejPole);
             bloky[ii].appendChild(addDiv);
         }
-        var pole = obsah.getElementsByClassName("pole");
-        for (var ii = 0; ii < pole.length; ii++) {
+        let pole = obsah.getElementsByClassName("pole");
+        for (let ii = 0; ii < pole.length; ii++) {
             addDiv = document.createElement("DIV");
             addDiv.classList.add("ikoedit");
             addDiv.classList.add("upravpole");
@@ -98,19 +99,17 @@ function zavriPanel() {
 }
 
 function pridejBlok(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
+    let addDiv;
     if (evt.target) {
         aktBlok = evt.target;
     }
     aktBlok = aktBlok.parentNode;
 
-    var addBlok = document.createElement("DIV");
+    let addBlok = document.createElement("DIV");
     addBlok.classList.add("block");
     addBlok.classList.add("block_standard");
-    var addCont = document.createElement("DIV");
+    let addCont = document.createElement("DIV");
     addCont.classList.add("container");
     addBlok.appendChild(addCont);
 
@@ -137,42 +136,42 @@ function pridejBlok(evt) {
 }
 
 function blokNahoru(evt) {
-    var nadramec = editObj.parentNode;
-    var pred = editObj.previousElementSibling;
+    let nadramec = editObj.parentNode;
+    let pred = editObj.previousElementSibling;
     if (pred != null) {
-        var pomblok = nadramec.removeChild(editObj);
+        let pomblok = nadramec.removeChild(editObj);
         nadramec.insertBefore(pomblok, pred);
     }
 }
 
 function blokDolu(evt) {
-    var nadramec = editObj.parentNode;
-    var po = editObj.nextElementSibling;
+    let nadramec = editObj.parentNode;
+    let po = editObj.nextElementSibling;
     if (po != null) {
         po = po.nextElementSibling;
-        var pomblok = nadramec.removeChild(editObj);
+        let pomblok = nadramec.removeChild(editObj);
         nadramec.insertBefore(pomblok, po);
     }
 
 }
 
 function blokNahoruInput(evt) {
-    var posBlok = editObj.parentNode;
-    var nadramec = posBlok.parentNode;
-    var pred = posBlok.previousElementSibling;
+    let posBlok = editObj.parentNode;
+    let nadramec = posBlok.parentNode;
+    let pred = posBlok.previousElementSibling;
     if (pred != null) {
-        var pomblok = nadramec.removeChild(posBlok);
+        let pomblok = nadramec.removeChild(posBlok);
         nadramec.insertBefore(pomblok, pred);
     }
 }
 
 function blokDoluInput(evt) {
-    var posBlok = editObj.parentNode;
-    var nadramec = posBlok.parentNode;
-    var po = posBlok.nextElementSibling;
+    let posBlok = editObj.parentNode;
+    let nadramec = posBlok.parentNode;
+    let po = posBlok.nextElementSibling;
     if (po != null) {
         po = po.nextElementSibling;
-        var pomblok = nadramec.removeChild(posBlok);
+        let pomblok = nadramec.removeChild(posBlok);
         nadramec.insertBefore(pomblok, po);
     }
 }
@@ -205,10 +204,7 @@ function blokSmazInput(evt) {
 
 
 function upravBlok(evt) {
-    var element;
-    if (evt.srcElement) {
-        element = evt.srcElement;
-    }
+    let element;
     if (evt.target) {
         element = evt.target;
     }
@@ -216,7 +212,7 @@ function upravBlok(evt) {
         editpanel.style.display = "none";
     }
     editpanel = document.getElementById("editblock");
-    if (editObj == element) {
+    if (editObj === element) {
         return;
     }
     if (editObj) {
@@ -228,14 +224,11 @@ function upravBlok(evt) {
 }
 
 function nastavZarovnaniTextu(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var typ = aktBlok.getAttribute("typ");
+    let typ = aktBlok.getAttribute("typ");
     if (!typ) {
         return;
     }
@@ -247,14 +240,11 @@ function nastavZarovnaniTextu(evt) {
 
 
 function nastavVelikostTextu(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var typ = aktBlok.getAttribute("hodnota");
+    let typ = aktBlok.getAttribute("hodnota");
     if (!typ) {
         return;
     }
@@ -268,14 +258,11 @@ function nastavVelikostTextu(evt) {
 
 
 function nastavBarvuPozadi(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var barva = "bcg_" + aktBlok.getAttribute("barva");
+    let barva = "bcg_" + aktBlok.getAttribute("barva");
     if (!barva) {
         return;
     }
@@ -300,14 +287,11 @@ function nastavBarvuPozadi(evt) {
 }
 
 function nastavBarvuTextu(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var barva = "col_" + aktBlok.getAttribute("barva");
+    let barva = "col_" + aktBlok.getAttribute("barva");
     if (!barva) {
         return;
     }
@@ -321,14 +305,11 @@ function nastavBarvuTextu(evt) {
 
 
 function nastavRamecek(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var barva = "bor_" + aktBlok.getAttribute("barva");
+    let barva = "bor_" + aktBlok.getAttribute("barva");
     if (!barva) {
         return;
     }
@@ -341,48 +322,42 @@ function nastavRamecek(evt) {
 }
 
 function nastavStin(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("hodnota");
+    let hodnota = aktBlok.getAttribute("hodnota");
     if (!hodnota) {
         return;
     }
     editObj.classList.remove("stin");
-    if (hodnota != "---") {
+    if (hodnota !== "---") {
         editObj.classList.add(hodnota);
     }
 }
 
 function nastavZoom(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("hodnota");
+    let hodnota = aktBlok.getAttribute("hodnota");
     if (!hodnota) {
         return;
     }
     editObj.classList.remove("zoom");
-    if (hodnota != "---") {
+    if (hodnota !== "---") {
         editObj.classList.add(hodnota);
     }
 }
 
 
 function nastavTypBloku(evt) {
-    var aktBlok;
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var typ = "block_" + aktBlok.getAttribute("typ");
+    let typ = "block_" + aktBlok.getAttribute("typ");
     if (!typ) {
         return;
     }
@@ -395,11 +370,11 @@ function nastavTypBloku(evt) {
 }
 
 function nastavTypInput(evt) {
-    var aktBlok;
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var typ = aktBlok.getAttribute("hodnota");
+    let typ = aktBlok.getAttribute("hodnota");
     if (!typ) {
         return;
     }
@@ -409,26 +384,23 @@ function nastavTypInput(evt) {
 
 
 function pridejPole(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
     aktBlok = aktBlok.parentNode.firstElementChild;
 
-    var addPole = document.createElement("DIV");
+    let addPole = document.createElement("DIV");
     addPole.classList.add("pole");
     addPole.classList.add("pole3");
     addPole.classList.add("poleM");
     addPole.classList.add("bcg_seda");
     
-    var addA = document.createElement("A");
+    let addA = document.createElement("A");
     addA.classList.add("odkaz");
     addPole.appendChild(addA);
 
-    var addDiv = document.createElement("DIV");
+    let addDiv = document.createElement("DIV");
     addDiv.classList.add("ikoedit");
     addDiv.classList.add("upravpole");
     addDiv.addEventListener("click", upravPole);
@@ -444,10 +416,7 @@ function pridejPole(evt) {
 }
 
 function upravPole(evt) {
-    var element;
-    if (evt.srcElement) {
-        element = evt.srcElement;
-    }
+    let element;
     if (evt.target) {
         element = evt.target;
     }
@@ -455,7 +424,7 @@ function upravPole(evt) {
         editpanel.style.display = "none";
     }
     editpanel = document.getElementById("editpole");
-    if (editObj == element) {
+    if (editObj === element) {
         return;
     }
     if (editObj) {
@@ -468,14 +437,11 @@ function upravPole(evt) {
 }
 
 function nastavPocetPole(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("typ");
+    let hodnota = aktBlok.getAttribute("typ");
     if (!hodnota) {
         return;
     }
@@ -488,11 +454,11 @@ function nastavPocetPole(evt) {
 }
 
 function nastavVyskaPole(evt) {
-    var aktBlok;
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("hodnota");
+    let hodnota = aktBlok.getAttribute("hodnota");
     if (!hodnota) {
         return;
     }
@@ -505,21 +471,18 @@ function nastavVyskaPole(evt) {
     editObj.classList.remove("pole_v7");
     editObj.classList.remove("pole_v8");
     editObj.classList.remove("pole_v9");
-    if (hodnota != "---") {
+    if (hodnota !== "---") {
         editObj.classList.add(hodnota);
     }
 }
 
 
 function nastavSirkaPole(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("typ");
+    let hodnota = aktBlok.getAttribute("typ");
     if (!hodnota) {
         return;
     }
@@ -531,15 +494,15 @@ function nastavSirkaPole(evt) {
 }
 
 function nastavSirkuInput(evt) {
-    var aktBlok;
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("hodnota");
+    let hodnota = aktBlok.getAttribute("hodnota");
     if (!hodnota) {
         return;
     }
-    var divObj = editObj.parentElement;
+    let divObj = editObj.parentElement;
     divObj.classList.remove("w25po");
     divObj.classList.remove("w50po");
     divObj.classList.remove("w75po");
@@ -549,12 +512,12 @@ function nastavSirkuInput(evt) {
 }
 
 function nastavRequired(evt){
-    var aktBlok;
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var hodnota = aktBlok.getAttribute("hodnota");
-    if (hodnota == "A") {
+    let hodnota = aktBlok.getAttribute("hodnota");
+    if (hodnota === "A") {
         editObj.required = true;
     }else{
         editObj.required = false;
@@ -567,10 +530,7 @@ function pridejPrvek(evt) {
     zavriPanel();
     editpanel = document.getElementById("pridejprvek");
     editpanel.style.display = "block";
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
@@ -579,56 +539,56 @@ function pridejPrvek(evt) {
 }
 
 function pridejObrazek(evt) {
-    var addPrvek = document.createElement("IMG");
+    let addPrvek = document.createElement("IMG");
     addPrvek.classList.add("prvek");
     editObj.appendChild(addPrvek);
 }
 
 function pridejNadpis(evt) {
-    var addPrvek = document.createElement("H2");
+    let addPrvek = document.createElement("H2");
     addPrvek.classList.add("prvek");
     addPrvek.innerHTML = "Nadpis";
     editObj.appendChild(addPrvek);
 }
 
 function pridejText(evt) {
-    var addPrvek = document.createElement("P");
+    let addPrvek = document.createElement("P");
     addPrvek.classList.add("prvek");
     addPrvek.innerHTML = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.";
     editObj.appendChild(addPrvek);
 }
 
 function pridejMapu(evt){
-    var addPrvek = document.createElement("IFRAME");
+    let addPrvek = document.createElement("IFRAME");
     addPrvek.classList.add("prvek");
 //    addPrvek.src = "https://www.google.com/maps/d/u/4/embed?mid=1wQGyZeagyxXI9NW0e5K5Y32GHuA&amp;ehbc=2E312F";
     addPrvek.src = "https://www.google.com/maps/d/embed?mid=1wQGyZeagyxXI9NW0e5K5Y32GHuA&ehbc=2E312F";
-    addPrvek.style="width:100%;height:800px";
+    addPrvek.style = "width:100%; height:800px;";
     editObj.appendChild(addPrvek);
 }
 
 function pridejInput(evt) {
-    var form = editObj.getElementsByTagName("FORM")[0];
+    let form = editObj.getElementsByTagName("FORM")[0];
     if(!form){
         form = document.createElement("form");
         form.setAttribute("action","");
         form.setAttribute("method","POST");
         editObj.appendChild(form);
     }
-    var addPrvek = document.createElement("DIV");
+    let addPrvek = document.createElement("DIV");
     addPrvek.classList.add("inputprvek");
     addPrvek.classList.add("w50po");
-    addPrvek.innerHTML = '<div class="nav">Nadpis</div><input class="prvek" type="text" onkeydown="return event.key !=\'Enter\'"  />';
+    addPrvek.innerHTML = '<div class="nav">Nadpis</div><input class="prvek" type="text" onkeydown="return event.key !==\'Enter\'"  />';
     form.appendChild(addPrvek);
 }
 
 function pridejTlacitko(evt) {
-    var form = editObj.getElementsByTagName("FORM")[0];
+    let form = editObj.getElementsByTagName("FORM")[0];
     if(!form){
         form = document.createElement("form");
         editObj.appendChild(form);
     }
-    var addPrvek = document.createElement("DIV");
+    let addPrvek = document.createElement("DIV");
     addPrvek.classList.add("inputprvek");
     addPrvek.classList.add("w50po");
     addPrvek.innerHTML = '<input class="prvek" type="submit" />';
@@ -636,10 +596,7 @@ function pridejTlacitko(evt) {
 }
 
 function upravPrvek(evt) {
-    var aktPrvek;
-    if (evt.srcElement) {
-        aktPrvek = evt.srcElement;
-    }
+    let aktPrvek;
     if (evt.target) {
         aktPrvek = evt.target;
     }
@@ -650,17 +607,17 @@ function upravPrvek(evt) {
     /*    if (editObj == aktPrvek) {
      return;
      }*/
-    if (aktPrvek.tagName == "IMG") {
+    if (aktPrvek.tagName === "IMG") {
         upravObrazek(aktPrvek);
     }
-    if (aktPrvek.tagName == "H1" || aktPrvek.tagName == "H2" || aktPrvek.tagName == "H3" || aktPrvek.tagName == "H4" || aktPrvek.tagName == "H56" || aktPrvek.tagName == "H6") {
+    if (aktPrvek.tagName === "H1" || aktPrvek.tagName === "H2" || aktPrvek.tagName === "H3" || aktPrvek.tagName === "H4" || aktPrvek.tagName === "H56" || aktPrvek.tagName === "H6") {
         upravNadpis(aktPrvek);
     }
-    if (aktPrvek.tagName == "P") {
+    if (aktPrvek.tagName === "P") {
         upravText(aktPrvek);
     }
-    if (aktPrvek.tagName == "INPUT") {
-        if(aktPrvek.getAttribute("type") == "submit"){
+    if (aktPrvek.tagName === "INPUT") {
+        if(aktPrvek.getAttribute("type") === "submit"){
             upravTlacitko(aktPrvek);
         }else{
             upravInput(aktPrvek);
@@ -699,21 +656,21 @@ function souborDoStranky(data) {
 }
 
 function souborDoPole(data) {
-    var styl = ' background-image: url('+data.cesta+');';
+    let styl = ' background-image: url('+data.cesta+');';
     editObj.setAttribute("style",styl);
 }
 
 
 function editRadek(element) {
-    //	var pozice = vratPoziciAbs(element);
-    var sirka = element.offsetWidth;
-    var vyska = element.offsetHeight;
-    var paddingLeft = window.getComputedStyle(element, null).getPropertyValue("padding-left");
-    var paddingTop = window.getComputedStyle(element, null).getPropertyValue("padding-top");
-    var paddingRight = window.getComputedStyle(element, null).getPropertyValue("padding-right");
-    var paddingBottom = window.getComputedStyle(element, null).getPropertyValue("padding-bottom");
-    sirka = sirka - parseInt(paddingLeft) - parseInt(paddingRight);
-    vyska = vyska - parseInt(paddingTop) - parseInt(paddingBottom);
+    let input;
+    let sirka = element.offsetWidth;
+    let vyska = element.offsetHeight;
+    let paddingLeft = window.getComputedStyle(element, null).getPropertyValue("padding-left");
+    let paddingTop = window.getComputedStyle(element, null).getPropertyValue("padding-top");
+//    let paddingRight = window.getComputedStyle(element, null).getPropertyValue("padding-right");
+//    let paddingBottom = window.getComputedStyle(element, null).getPropertyValue("padding-bottom");
+//    sirka = sirka - parseInt(paddingLeft) - parseInt(paddingRight);
+//    vyska = vyska - parseInt(paddingTop) - parseInt(paddingBottom);
     input = document.createElement("INPUT");
     input.onblur = opustRadek;
     input.value = element.innerHTML;
@@ -721,6 +678,8 @@ function editRadek(element) {
     element.appendChild(input);
     input.style.width = sirka + "px";
     input.style.height = vyska + "px";
+    input.style.padding = 0;
+    input.style.margin = 0;
     input.style.fontFamily = window.getComputedStyle(element, null).getPropertyValue("font-family");
     input.style.fontWeight = window.getComputedStyle(element, null).getPropertyValue("font-weight");
     input.style.fontSize = window.getComputedStyle(element, null).getPropertyValue("font-size");
@@ -733,14 +692,14 @@ function editRadek(element) {
 
 
 function opustRadek() {
+    var input = editObj.firstElementChild;
     if (input == null) {
         return;
     }
-    var text = input.value;
-    var parrent = input.parentNode;
+    let text = input.value;
+    let parrent = input.parentNode;
     parrent.removeChild(input);
     parrent.innerHTML = text;
-    input = null;
 }
 
 function upravText(edOb) {
@@ -764,7 +723,7 @@ function upravInput(edOb) {
     editObj = edOb;
     editObj.classList.add("editace");
     editpanel.style.display = "block";
-    var inp = editpanel.getElementsByTagName("INPUT")[0];
+    let inp = editpanel.getElementsByTagName("INPUT")[0];
     inp.value = editObj.previousElementSibling.innerHTML;
 
 }
@@ -778,7 +737,7 @@ function upravTlacitko(edOb) {
     editObj = edOb;
     editObj.classList.add("editace");
     editpanel.style.display = "block";
-    var inp = editpanel.getElementsByTagName("INPUT")[0];
+    let inp = editpanel.getElementsByTagName("INPUT")[0];
     inp.value = editObj.value;
 
 }
@@ -800,19 +759,19 @@ function tlacitkopopis(evt){
 
 
 function editText(element) {
-    var sirka = element.offsetWidth;
-    var vyska = element.offsetHeight;
-    var paddingLeft = window.getComputedStyle(element, null).getPropertyValue("padding-left");
-    var paddingTop = window.getComputedStyle(element, null).getPropertyValue("padding-top");
-    var paddingRight = window.getComputedStyle(element, null).getPropertyValue("padding-right");
-    var paddingBottom = window.getComputedStyle(element, null).getPropertyValue("padding-bottom");
+    let sirka = element.offsetWidth;
+    let vyska = element.offsetHeight;
+    let paddingLeft = window.getComputedStyle(element, null).getPropertyValue("padding-left");
+    let paddingTop = window.getComputedStyle(element, null).getPropertyValue("padding-top");
+    let paddingRight = window.getComputedStyle(element, null).getPropertyValue("padding-right");
+    let paddingBottom = window.getComputedStyle(element, null).getPropertyValue("padding-bottom");
     sirka = sirka - parseInt(paddingLeft) - parseInt(paddingRight);
     vyska = vyska - parseInt(paddingTop) - parseInt(paddingBottom);
     texar = document.createElement("TEXTAREA");
     texar.id = "editext";
     texar.onblur = opustArea;
-    var pztxt = element.innerHTML;
-    var pctxt = pztxt.replace(/<br>/g, '\n');
+    let pztxt = element.innerHTML;
+    let pctxt = pztxt.replace(/<br>/g, '\n');
     texar.innerHTML = pctxt;
     element.innerHTML = "";
     element.appendChild(texar);
@@ -833,33 +792,30 @@ function opustArea() {
     if (texar == null) {
         return;
     }
-    var text = texar.value;
-    var parrent = texar.parentNode;
+    let text = texar.value;
+    let parrent = texar.parentNode;
     parrent.removeChild(texar);
     parrent.innerHTML = text.replace(/\n/g, '<br>');
     texar = null;
 }
 
 function nastavTagPrvku(evt) {
-    var aktBlok;
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
+    let aktBlok;
     if (evt.target) {
         aktBlok = evt.target;
     }
-    var tag = aktBlok.getAttribute("typ");
+    let tag = aktBlok.getAttribute("typ");
     if (!tag) {
         return;
     }
-    var novTag = document.createElement(tag);
+    let novTag = document.createElement(tag);
     novTag.innerHTML = editObj.innerHTML;
 
-    var poc = editObj.classList.length;
-    for (var ii = 0; ii < poc; ii++) {
+    let poc = editObj.classList.length;
+    for (let ii = 0; ii < poc; ii++) {
         novTag.classList.add(editObj.classList[ii]);
     }
-    var prvNad = editObj.parentNode;
+    let prvNad = editObj.parentNode;
     prvNad.insertBefore(novTag, editObj);
     prvNad.removeChild(editObj);
     editObj = novTag;
@@ -868,7 +824,7 @@ function nastavTagPrvku(evt) {
 }
 
 function nabOdkazy() {
-    var par = nulujPar(); //aktuálně načítené parametry
+    let par = nulujPar(); //aktuálně načítené parametry
     par.jmp = "stranka";
     par.pre = "stranka";
     par.fce = "nabOdkazy";
@@ -876,15 +832,15 @@ function nabOdkazy() {
 }
 
 function vlozOdkaz(odkaz){
-    var odkA = editObj.getElementsByTagName("A")[0];
-    var cesta = "?stranka/obsah/id="+odkaz;
+    let odkA = editObj.getElementsByTagName("A")[0];
+    let cesta = "?stranka/obsah/id="+odkaz;
     odkA.href =cesta;
 }
 
 
 function strankaSeznam() {
     editmod();
-    var par = nulujPar(); //aktuálně načítené parametry
+    let par = nulujPar(); //aktuálně načítené parametry
     par.jmp = "stranka";
     par.pre = "stranka";
     par.fce = "nabStranky";
@@ -893,22 +849,22 @@ function strankaSeznam() {
 
 function strankaPridej(){
     editmod();
-    var stranka = document.getElementById("obsah");
+    let stranka = document.getElementById("obsah");
     stranka.setAttribute("idstr", 0);
     stranka.setAttribute("nazev","Nová stránka");
     stranka.innerHTML = '<div class="block block_standard"><div class="container"></div></div>';
-    var inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
+    let inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
     inp.value = "Nová stránka";
     editmod();
 }
 
 function strankaKopy(){
     editmod();
-    var stranka = document.getElementById("obsah");
+    let stranka = document.getElementById("obsah");
     stranka.setAttribute("idstr", 0);
-    var nazev = stranka.getAttribute("nazev")+" - kopie";
+    let nazev = stranka.getAttribute("nazev")+" - kopie";
     stranka.setAttribute("nazev",nazev);
-    var inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
+    let inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
     inp.value = nazev;
     editmod();
     
@@ -916,9 +872,9 @@ function strankaKopy(){
 
 function strankaUloz(){
     editmod();
-    var stranka = document.getElementById("obsah");
-    var inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
-    var par = nulujPar();
+    let stranka = document.getElementById("obsah");
+    let inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
+    let par = nulujPar();
     par.data.id = stranka.getAttribute("idstr");
     par.data.nazev = inp.value;
     par.data.obsah = stranka.innerHTML;
@@ -931,31 +887,28 @@ function strankaUloz(){
 
 /*
 function zobrazStranku(param){
-    var stranka = document.getElementById("stranka");
+    let stranka = document.getElementById("stranka");
     stranka.setAttribute("idstr", param.id);
     stranka.setAttribute("nazev",param.nazev);
     stranka.innerHTML = param.obsah;
-    var inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
+    let inp = document.getElementById("editstranka").getElementsByTagName("INPUT")[0];
     inp.value = param.nazev;
     editmod();
 }
 */
 
 function nactiStranku(evt){
-    var aktBlok;
+    let aktBlok;
     document.getElementById("nabidka").style.display = "none";
     
-    if (evt.srcElement) {
-        aktBlok = evt.srcElement;
-    }
     if (evt.target) {
         aktBlok = evt.target;
     }
-    while(aktBlok.tagName != "TR" && aktBlok != null){
+    while(aktBlok.tagName !== "TR" && aktBlok !== null){
         aktBlok = aktBlok.parentNode;
     }
-    if(aktBlok == null){return;}
-    var par = nulujPar();
+    if(aktBlok === null){return;}
+    let par = nulujPar();
     par.data.id = aktBlok.getAttribute("id");
 
     par.jmp = "stranka";
@@ -965,7 +918,7 @@ function nactiStranku(evt){
 }
 
 function nabidkaStranek(data){
-    var nab = document.getElementById("nabidka");
+    let nab = document.getElementById("nabidka");
     nab.innerHTML = data.obsah;
     nab.addEventListener("click", nactiStranku);
    nab.style.display = "block";
