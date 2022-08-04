@@ -10,7 +10,7 @@ const oblOptions = {
 
 const standardOptions = {
     root: null,
-    threshold: [0.60]
+    threshold: [0.05]
 };
 
 for(var ii = 0; ii < blok_oblasti.length; ii++){

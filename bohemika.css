@@ -753,6 +753,33 @@ img.logo:hover {
     color: #7bc2f5;
 }
 
+
+
+.w25po {
+    width: calc(25% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.w50po {
+    width: calc(50% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.w75po {
+    width: calc(75% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.w100po {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
 @media (min-width: 1920px) {
     .block {
         margin-left: calc(50% - 960px);
@@ -981,6 +1008,20 @@ img.logo:hover {
     }
 
 
+
+    .w25po {
+        width: calc(50% - 20px);
+    }
+
+    .w50po {
+        width: calc(100% - 20px);
+    }
+
+    .w75po {
+        width: calc(100% - 20px);
+    }
+
+
 }
 
 
@@ -989,6 +1030,10 @@ img.logo:hover {
     .block_oblasti {
         height: 2300px;
     }
+    .w25po {
+        width: calc(100% - 20px);
+    }
+
 }
 
 
@@ -1171,28 +1216,3 @@ img.logo:hover {
     border-bottom: 1px solid #ddd;
     cursor: pointer;
 }
-
-.w25po {
-    width: calc(25% - 20px);
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.w50po {
-    width: calc(50% - 20px);
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.w75po {
-    width: calc(75% - 20px);
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.w100po {
-    width: calc(100% - 20px);
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
