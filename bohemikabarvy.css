@@ -1,5 +1,5 @@
 *{
-    font-family: tahoma;
+    font-family: helvetica;
 }
 
 h1{
@@ -7,7 +7,7 @@ h1{
 }
 
 h2{
-    color:#7ac2f5;
+    color:#0078cd;
 }
 
 h2 img{
@@ -127,19 +127,19 @@ textarea{
 }
 
 .bcg_bila1{
-    background-color: #ffffff40;
+    background-color: #ffffff20;
 }
 
 .bcg_seda1{
-    background-color: #ecebe840;
+    background-color: #ecebe820;
 }
 
 .bcg_bledemodra1{
-    background-color: #7bc2f540;
+    background-color: #7bc2f520;
 }
 
 .bcg_tmavomodra1{
-    background-color: #00589740;
+    background-color: #00589720;
 }
 
 .col_bila{

@@ -37,9 +37,9 @@ class provozovna_tem extends template {
         echo '          <h2 class="col_tmavabarva">Provozovna<a href="?provozovna/seznam/str=' . $param["str"] . '"><img src="./img/iko_zavrit.svg" ></a></h2>';
         echo '          <form name="polozka" >';
         echo '              <div class="nav">Zástupce (jméno a příjmení)</div>';
-        echo '              <input type="text" name="pro_zastupce" value="' . $param["data"][0]["pro"]->zastupce . '" />';
+        echo '              <input type="text" class="w100p" name="pro_zastupce" value="' . $param["data"][0]["pro"]->zastupce . '" />';
         echo '              <div class="nav">Kraj</div>';
-        echo '              <select name="pro_krajId">';
+        echo '              <select name="pro_krajId" class="w100p" >';
 
         foreach ($param["kraje"] as $kraj) {
             if ($kraj["kra"]->id == $param["data"][0]["pro"]->krajId) {
@@ -53,31 +53,31 @@ class provozovna_tem extends template {
 
 
         echo '              <div class="nav">Město</div>';
-        echo '              <input type="text" name="pro_mesto" value="' . $param["data"][0]["pro"]->mesto . '" />';
+        echo '              <input type="text" class="w100p" name="pro_mesto" value="' . $param["data"][0]["pro"]->mesto . '" />';
         echo '              <div class="nav">PSČ </div>';
-        echo '              <input type="text" name="pro_psc" value="' . $param["data"][0]["pro"]->psc . '" />';
+        echo '              <input type="text" class="w100p" name="pro_psc" value="' . $param["data"][0]["pro"]->psc . '" />';
         echo '              <div class="nav">Ulice a číslo popisné</div>';
-        echo '              <input type="text" name="pro_ulice" value="' . $param["data"][0]["pro"]->ulice . '" />';
+        echo '              <input type="text" class="w100p" name="pro_ulice" value="' . $param["data"][0]["pro"]->ulice . '" />';
         echo '              <div class="nav">Telefon</div>';
-        echo '              <input type="text" name="pro_telefon" value="' . $param["data"][0]["pro"]->telefon . '" />';
+        echo '              <input type="text" class="w100p" name="pro_telefon" value="' . $param["data"][0]["pro"]->telefon . '" />';
         echo '              <div class="nav">Email </div>';
-        echo '              <input type="text" name="pro_email" value="' . $param["data"][0]["pro"]->email . '" />';
+        echo '              <input type="text" class="w100p" name="pro_email" value="' . $param["data"][0]["pro"]->email . '" />';
         echo '              <div class="nav">Otevřeno PO</div>';
-        echo '              <input type="text" name="pro_provozPo" value="' . $param["data"][0]["pro"]->provozPo . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozPo" value="' . $param["data"][0]["pro"]->provozPo . '" />';
         echo '              <div class="nav">Otevřeno ÚT</div>';
-        echo '              <input type="text" name="pro_provozUt" value="' . $param["data"][0]["pro"]->provozUt . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozUt" value="' . $param["data"][0]["pro"]->provozUt . '" />';
         echo '              <div class="nav">Otevřeno ST</div>';
-        echo '              <input type="text" name="pro_provozSt" value="' . $param["data"][0]["pro"]->provozSt . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozSt" value="' . $param["data"][0]["pro"]->provozSt . '" />';
         echo '              <div class="nav">Otevřeno ČT</div>';
-        echo '              <input type="text" name="pro_provozCt" value="' . $param["data"][0]["pro"]->provozCt . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozCt" value="' . $param["data"][0]["pro"]->provozCt . '" />';
         echo '              <div class="nav">Otevřeno PÁ</div>';
-        echo '              <input type="text" name="pro_provozPa" value="' . $param["data"][0]["pro"]->provozPa . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozPa" value="' . $param["data"][0]["pro"]->provozPa . '" />';
         echo '              <div class="nav">Otevřeno SO</div>';
-        echo '              <input type="text" name="pro_provozSo" value="' . $param["data"][0]["pro"]->provozSo . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozSo" value="' . $param["data"][0]["pro"]->provozSo . '" />';
         echo '              <div class="nav">Otevřeno NE</div>';
-        echo '              <input type="text" name="pro_provozNe" value="' . $param["data"][0]["pro"]->provozNe . '" />';
+        echo '              <input type="text" class="w100p" name="pro_provozNe" value="' . $param["data"][0]["pro"]->provozNe . '" />';
         echo '              <div class="nav">Poznámka</div>';
-        echo '              <input type="text" name="pro_poznamka" value="' . $param["data"][0]["pro"]->poznamka . '" />';
+        echo '              <input type="text" class="w100p" name="pro_poznamka" value="' . $param["data"][0]["pro"]->poznamka . '" />';
 
         echo '              <input type="hidden" name="pro_id" value="' . $param["data"][0]["pro"]->id . '" />';
         echo '              <div class="tlacpas">';
@@ -90,26 +90,31 @@ class provozovna_tem extends template {
     }
 
     public function vypis($param) {
-        echo '<div class="block  block_standard">';
+        echo '<div class="block  block_standard bcg_bledemodra1">';
         echo '<div class="container">';
-
+        echo '<h1>Pobočky Bohemika</h1>';
         $kraj = 0;
         foreach ($param["data"] as $rad) {
             if ($kraj != $rad["pro"]->krajId) {
                 $kraj = $rad["pro"]->krajId;
                 echo '<div class="pole pole1 poleL">';
-                echo '<h2>' . $rad["kra"]->nazev . '</h2>';
+                echo '<h2>kraj ' . $rad["kra"]->nazev . '</h2>';
                 echo '</div>';
             }
-            echo '<div class="pole pole3 poleL stin provozovna">';
+            $adresa = 'https://www.google.cz/maps/dir//'.$rad["pro"]->ulice.'+'.$rad["pro"]->psc.'+'.$rad["pro"]->mesto;
+            echo '<div class="pole pole3 poleL stin provozovna zoom">';
+            echo '<a class="pro_trasa" href="'.$adresa.'" target="_blank">trasa</a>';
             echo '<div class="pro_mesto">' . $rad["pro"]->mesto . '</div>';
             echo '<div class="pro_ulice">' . $rad["pro"]->ulice . '</div>';
             echo '<div class="pro_zastupce">' . $rad["pro"]->zastupce . '</div>';
-            echo '<div class="pole pole2 poleL fl">';
-            echo '<div class="pro_telefon"><a href="tel:http://'.$rad["pro"]->telefon.'">' . $rad["pro"]->telefon . '</div>';
-            echo '<div class="pro_email">' . $rad["pro"]->email . '</div>';
-            echo '<div class="pro_poznamka">' . $rad["pro"]->poznamka . '</div>';
-            echo '</div>';
+//            echo '<div class="pole pole2 poleL fl">';
+            echo '<div class="pro_telefon"><a href="tel:http://'.$rad["pro"]->telefon.'">' . $rad["pro"]->telefon . '</a></div>';
+            echo '<div class="pro_email"><a href="mailto:'.$rad["pro"]->email.'">' . $rad["pro"]->email . '</a></div>';
+            if($rad["pro"]->poznamka > " ") {
+                echo '<div class="pro_poznamka">' . $rad["pro"]->poznamka . '</div>';
+            }
+//            echo '</div>';
+/*
             echo '<div class="pole pole2 poleL fl">';
             if(trim($rad["pro"]->provozPo)) {echo '<div class="pro_doba"><div>Po</div>' . $rad["pro"]->provozPo . '</div>';}
             if(trim($rad["pro"]->provozUt)) {echo '<div class="pro_doba"><div>Út</div>' . $rad["pro"]->provozUt . '</div>';}
@@ -119,11 +124,12 @@ class provozovna_tem extends template {
             if(trim($rad["pro"]->provozSo)) {echo '<div class="pro_doba"><div>So</div>' . $rad["pro"]->provozSo . '</div>';}
             if(trim($rad["pro"]->provozNe)) {echo '<div class="pro_doba"><div>Ne</div>' . $rad["pro"]->provozNe . '</div>';}
             echo '</div>';
+/*
             echo '<div class="tlacpas fc">';
-            $adresa = 'https://www.google.cz/maps/dir//'.$rad["pro"]->ulice.'+'.$rad["pro"]->psc.'+'.$rad["pro"]->mesto;
             echo '<div><a href="'.$adresa.'" target="_blank">Trasa</a></div>';
             echo '<div><a href="#" jmp="provozovna" pre="provozovna" fce="napsat" par="id='.$rad["pro"]->id.'" onclick="posli(event);">Napište mi</a></div>';
             echo '</div>';
+*/
             echo '</div>';
         }
         echo '</div>';

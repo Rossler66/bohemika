@@ -62,7 +62,7 @@ class provozovna_pre extends presenter{
     
     public function vypis($param){
          $servPar["str"] = 0;
-         $servpar["poc"] = 999;
+         $servPar["poc"] = 999;
          $servPar["order"] = "pro.kraj_id, pro.mesto";
         $templPar["data"] = $this->service->seznam($servPar);
         $templPar["str"] = $param["str"];

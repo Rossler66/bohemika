@@ -10,8 +10,9 @@ body {
 
 
 h1 {
-    font-size: 46px;
+    font-size: 40px;
     line-height: 1.2;
+    margin: 60px 0 30px 0;
 
 }
 
@@ -665,30 +666,63 @@ img.logo:hover {
 }
 
 .provozovna {
-    height: 400px;
+    height: 280px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+
+.provozovna a {
+    text-decoration: none;
+    color: #333;
+}
+
+.provozovna a:hover {
+    color: #1d47d2;
+    background-color: #ecebe8;
 }
 
 .pro_mesto {
-    color: white;
-    background-color: #7bc2f5;
-    font-size: 22px;
+    color: #0078cd;
+    font-size: 18px;
     font-weight: 600;
-    padding: 20px 20px 0 20px;
+    padding: 30px 20px 0 20px;
 }
 
 .pro_ulice {
-    color: white;
-    background-color: #7bc2f5;
-    font-size: 18px;
+    color: #0078cd;
+    font-size: 14px;
     font-weight: 400;
-    padding: 0 20px 10px 20px;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin: 0 20px;
+    width: calc(100% - 40px);
+}
+
+.pro_trasa {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-image: url(./img/iko_trasa.svg);
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: center 10px;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 12px;
+    line-height: 80px;
+    padding: 10px;
+    color: #7bc2f5 !important;
 }
 
 .pro_zastupce {
     color: #666;
-    font-size: 24px;
-    padding: 30px 20px;
+    font-size: 21px;
+    padding: 50px 20px 30px 20px;
     text-align: center;
+    font-weight: 700;
 }
 
 .pro_telefon {
@@ -700,6 +734,8 @@ img.logo:hover {
     background-repeat: no-repeat;
     background-size: 12px;
     background-position-y: 3px;
+    float: left;
+    width: 20%;
 }
 
 .pro_email {
@@ -711,17 +747,21 @@ img.logo:hover {
     background-repeat: no-repeat;
     background-size: 15px;
     background-position-y: 3px;
+    float: left;
 }
 
 .pro_poznamka {
-    font-size: 14px;
-    color: #666;
-    margin: 15px 20px 5px 20px;
+    font-size: 12px;
+    color: #ccc;
+    margin: 40px 20px 5px 20px;
     padding: 0 0 0 30px;
     background-image: url(./img/iko_poznamka.svg);
     background-repeat: no-repeat;
     background-size: 15px;
     background-position-y: 3px;
+    clear: both;
+    overflow: hidden;
+    height: 34px;
 }
 
 .pro_doba {
@@ -754,7 +794,6 @@ img.logo:hover {
 }
 
 
-
 .w25po {
     width: calc(25% - 20px);
     margin-right: 10px;
@@ -777,6 +816,10 @@ img.logo:hover {
     width: calc(100% - 20px);
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.w100p {
+    width: 100%;
 }
 
 
@@ -1008,7 +1051,6 @@ img.logo:hover {
     }
 
 
-
     .w25po {
         width: calc(50% - 20px);
     }
@@ -1030,6 +1072,7 @@ img.logo:hover {
     .block_oblasti {
         height: 2300px;
     }
+
     .w25po {
         width: calc(100% - 20px);
     }

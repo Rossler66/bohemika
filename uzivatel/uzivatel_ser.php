@@ -59,6 +59,7 @@ class uzivatel_ser extends service {
     public function uloz($param) {
         $polozkaRep = $this->vratObjekt("uzivatel", "uzivatel_rep", "uzi_uzivatel_zaz_rep");
         $polozkaEnt = $polozkaRep->nactiFormular($param);
+        $polozkaEnt[0]["uzi"]->opravneni = "A";
         if ($polozkaEnt[0]["uzi"]->heslo != "") {
             $polozkaEnt[0]["uzi"]->heslo = $this->hesloCrypt($polozkaEnt[0]["uzi"]->heslo);
             $polozky = array("login", "heslo", "jmeno", "opravneni", "email");
