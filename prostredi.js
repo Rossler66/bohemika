@@ -1,5 +1,5 @@
 const blok_oblasti = document.getElementsByClassName("block_oblasti");
-const blok_standard = document.getElementsByClassName("block_standard");
+const blok_standard = document.getElementsByClassName("zoom");
 let blok_oblasti_observer = [];
 let blok_standard_observer = [];
 let ii;
@@ -11,7 +11,7 @@ const oblOptions = {
 
 const standardOptions = {
     root: null,
-    threshold: [0.05]
+    threshold: [0.2]
 };
 
 for(ii = 0; ii < blok_oblasti.length; ii++){
@@ -27,7 +27,7 @@ for(ii = 0; ii < blok_standard.length; ii++){
 
 function call_oblasti(entries) {
     const [entry] = entries;
-    console.log(entry);
+//    console.log(entry);
 
     let pole = entries[0].target.getElementsByClassName("pole");
     if (entry.isIntersecting && entry.intersectionRatio < 1) {
@@ -44,78 +44,17 @@ function call_oblasti(entries) {
 
 function call_standard(entries) {
     const [entry] = entries;
-    console.log(entry);
 
-    let pole = entries[0].target.getElementsByClassName("zoom");
-    if (entry.isIntersecting && entry.intersectionRatio < 1) {
-        for (ii = 0; ii < pole.length; ii++) {
-            pole[ii].classList.remove("zmensi");
-        }
+    if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+        entry.target.classList.remove("zmensi");
 
     } else {
-        for (ii = 0; ii < pole.length; ii++) {
-            pole[ii].classList.add("zmensi");
-        }
+        entry.target.classList.add("zmensi");
     }
 }
 
 
 
-/*
-const blok_oblasti = document.getElementById("oblasti");
-const blok_uziti = document.getElementById("uziti");
-
-const objOptions = {
-    root: null,
-    threshold: [0.1]
-};
-
-const uzitiOptions = {
-    root: null,
-    threshold: [0.25]
-};
-
-const blok_oblasti_observer = new IntersectionObserver(call_oblasti, objOptions);
-const blok_uziti_observer = new IntersectionObserver(call_uziti, uzitiOptions);
-blok_oblasti_observer.observe(blok_oblasti);
-blok_uziti_observer.observe(blok_uziti);
-
-function call_oblasti(entries) {
-    const [entry] = entries;
-    console.log(entry);
-
-    var pole = entries[0].target.getElementsByClassName("pole");
-    if (entry.isIntersecting && entry.intersectionRatio < 1) {
-        for (var ii = 0; ii < pole.length; ii++) {
-            pole[ii].classList.remove("banvolby");
-        }
-
-    } else {
-        for (var ii = 0; ii < pole.length; ii++) {
-            pole[ii].classList.add("banvolby");
-        }
-    }
-}
-
-
-function call_uziti(entries) {
-    const [entry] = entries;
-    console.log(entry);
-
-    var pole = entries[0].target.getElementsByClassName("pole");
-    if (entry.isIntersecting && entry.intersectionRatio < 1) {
-        for (var ii = 0; ii < pole.length; ii++) {
-            pole[ii].classList.remove("zmensi");
-        }
-
-    } else {
-        for (var ii = 0; ii < pole.length; ii++) {
-            pole[ii].classList.add("zmensi");
-        }
-    }
-}
-
-*/
 function zavridialog(evt) {
     let vstupElement;
     if (evt.target) {
