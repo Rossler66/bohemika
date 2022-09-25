@@ -219,8 +219,17 @@ function upravBlok(evt) {
         editObj.classList.remove("editace");
     }
     editObj = element.parentNode;
+    document.getElementById("nazevBloku").value = editObj.id;
+
     editObj.classList.add("editace");
     editpanel.style.display = "block";
+}
+
+function nastavNazevBloku(){
+    if (!editObj) {
+        return;
+    }
+    editObj.id = document.getElementById("nazevBloku").value;
 }
 
 function nastavZarovnaniTextu(evt) {
@@ -831,10 +840,19 @@ function nabOdkazy() {
     PosliPozadavek(JSON.stringify(par));
 }
 
-function vlozOdkaz(odkaz){
+function vlozOdkaz(evt,odkaz){
     let odkA = editObj.getElementsByTagName("A")[0];
     let cesta = "?stranka/obsah/id="+odkaz;
     odkA.href =cesta;
+    zavridialog(evt);
+}
+
+function vlozOdkazURL(evt){
+    let odkaz = document.getElementById("odkazURL").value;
+    let odkA = editObj.getElementsByTagName("A")[0];
+    let cesta = odkaz;
+    odkA.href =cesta;
+    zavridialog(evt);
 }
 
 

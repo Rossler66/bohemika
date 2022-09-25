@@ -133,3 +133,12 @@ function detCook(evt) {
         detCok.classList.add("disn");
     }
 }
+
+function dokumentZmenNazev(sel){
+    document.getElementById("dokNazev").value = sel.options[sel.selectedIndex].text;
+}
+
+function setValue(data){
+
+    document.getElementById(data["id"]).value = data["value"];
+}

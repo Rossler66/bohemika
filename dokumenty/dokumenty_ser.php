@@ -5,7 +5,7 @@ include_once( "service.php" );
 class dokumenty_ser extends service {
 
     public function seznam($param) {
-        $sezPar["order"] = "dok.nazev";
+        $sezPar["order"] = "dok.platnost_od desc";
         if (array_key_exists("order", $param) && $param["order"]) {
             $sezPar["order"] = $param["order"];
         }
@@ -29,6 +29,10 @@ class dokumenty_ser extends service {
     public function uloz($param) {
         $polozkaRep = $this->vratObjekt("stranka", "stranka_rep", "web_dokumenty_zaz_rep");
         $polozkaEnt = $polozkaRep->nactiFormular($param);
+        $polozkaEnt[0]["naz"]->popis = " ";
+        $polozkaEnt[0]["naz"]->id = $polozkaEnt[0]["dok"]->nazevId;
+        $polozkaRep->uloz($polozkaEnt[0]["naz"],"naz");
+        $polozkaEnt[0]["dok"]->nazevId = $polozkaEnt[0]["naz"]->id;
         $polozkaRep->uloz($polozkaEnt[0]["dok"], "dok");
         return $polozkaEnt;
     }

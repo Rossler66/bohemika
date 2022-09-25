@@ -46,7 +46,10 @@ function PosliPozadavek(Param)
                     if (token.typ === "stranka") {
                         location.href = token.data;
                     }
-                    /*                     
+                    if (token.typ === "setvalue") {
+                        setValue(token.data);
+                    }
+                    /*
                      if (token.typ === "nabstranek") {
                      nabidkaStranek(token.data);
                      }

@@ -56,10 +56,9 @@ class menu_tem extends template {
         }
         echo '              <input type="radio" name="men_menuKod" value="Z" ' . $sel . '/>Zápatí';
         echo '              <div class="nav">Text</div>';
-        echo '              <input type="text" name="men_text" value="' . $param["data"][0]["men"]->text . '" />';
+        echo '              <input class="w100p" type="text" name="men_text" value="' . $param["data"][0]["men"]->text . '" />';
         echo '              <div class="nav">Odkaz</div>';
-
-        echo '              <select name="men_odkaz">';
+        echo '              <select class="w100p" name="men_odkaz">';
         if ('' == $param["data"][0]["men"]->odkaz) {
             $sel = "SELECTED";
         } else {
@@ -83,6 +82,10 @@ class menu_tem extends template {
         }
         echo '              <option value="'.$odkaz.'" ' . $sel . ' >Pobočky</option>';
         echo '              </select>';
+        echo '              <div class="nav">URL adresa nebo název pole</div>';
+        echo '              <input class="w100p" type="text" name="men_url" value="' . $param["data"][0]["men"]->url . '" />';
+
+
         echo '              <input type="hidden" name="men_id" value="' . $param["data"][0]["men"]->id . '" />';
         echo '              <div class="tlacpas">';
         echo '                  <input type="button" class="tlacitko" value="Uložit" jmp="menu" pre="menu" fce="uloz" par="id=' . $param["id"] . ',str=' . $param["str"] . '" form="polozka" onclick="posli(event)" />';

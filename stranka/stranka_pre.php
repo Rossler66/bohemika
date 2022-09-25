@@ -122,13 +122,14 @@ class stranka_pre extends presenter {
         $sezPar["where"] = "men.menu_kod='Z'";
         $sezPar["order"] = "men.id";
         $zapPar["nabidka"] = $this->nactiSeznam("menu", "menu_rep", "web_menu_zaz_rep", $sezPar);
-        $sezPar["where"] = "1";
-        $sezPar["order"] = "dok.nazev";
+        $sezPar["where"] = 'dok.platny="A"';
+        $sezPar["order"] = "naz.nazev";
         $zapPar["dokumenty"] = $this->nactiSeznam("stranka", "stranka_rep", "web_dokumenty_soubor_rep", $sezPar);
         $this->template->zapati($zapPar);
     }
 
     public function editor($param) {
+        if(strpos($_SESSION["opravneni"],"3") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         if (array_key_exists("typ", $param) && $param["typ"]) {
             $obsPar["typ"] = $param["typ"];
         } else {
@@ -141,12 +142,14 @@ class stranka_pre extends presenter {
     }
 
     public function ulozstranku($param) {
+        if(strpos($_SESSION["opravneni"],"3") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $editorPar["id"] = $this->service->ulozstranku($param);
         $editorPar["typ"] = "";
         $this->editor($editorPar);
     }
 
     public function obrazek($data) {
+        if(strpos($_SESSION["opravneni"],"3") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $souborSer = $this->vratObjekt("soubor", "soubor_ser", "soubor_ser");
         $soubor = $souborSer->nahraj($data);
 
@@ -158,6 +161,7 @@ class stranka_pre extends presenter {
     }
 
     public function obrazekpole($data) {
+        if(strpos($_SESSION["opravneni"],"3") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $souborSer = $this->vratObjekt("soubor", "soubor_ser", "soubor_ser");
         $soubor = $souborSer->nahraj($data);
 
@@ -175,12 +179,13 @@ class stranka_pre extends presenter {
         echo '</body>';
         echo '<script src="prostredi.js"></script>';
         echo '<script src="komunikator.js"></script>';
+        echo '<script src="editace.js"></script>';
         echo $this->skripty;
         echo '</html>';
     }
 
     public function nabStranky($param) {
-
+        if(strpos($_SESSION["opravneni"],"3") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $this->service->nabStranky($param);
     }
 

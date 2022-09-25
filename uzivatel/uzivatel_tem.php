@@ -160,6 +160,18 @@ class uzivatel_tem extends template {
         echo '              <input type="password" class="w100p" name="uzi_heslo" value="" />';
         echo '              <div class="nav">Email</div>';
         echo '              <input type="text" name="uzi_email" class="w100p" value="' . $param["data"][0]["uzi"]->email . '" />';
+        echo '              <div class="nav">Oprávnění</div><ul class="w100p">';
+        if(strpos($param["data"][0]["uzi"]->opravneni,"1") !== false){$checked = "checked";}else{$checked = "";}
+        echo '                <li><input type="checkbox" name="opr_uzivatele" value="1" '.$checked.'>Uživatelé</li>';
+        if(strpos($param["data"][0]["uzi"]->opravneni,"2")){$checked = "checked";}else{$checked = "";}
+        echo '                <li><input type="checkbox" name="opr_dokumenty" value="2" '.$checked.'>Dokumenty</li>';
+        if(strpos($param["data"][0]["uzi"]->opravneni,"3")){$checked = "checked";}else{$checked = "";}
+        echo '                <li><input type="checkbox" name="opr_stranky" value="3" '.$checked.'>Stránky a menu</li>';
+        if(strpos($param["data"][0]["uzi"]->opravneni,"4")){$checked = "checked";}else{$checked = "";}
+        echo '                <li><input type="checkbox" name="opr_pobocky" value="4" '.$checked.'>Pobočky</li>';
+        if(strpos($param["data"][0]["uzi"]->opravneni,"5")){$checked = "checked";}else{$checked = "";}
+        echo '                <li><input type="checkbox" name="opr_pobocka" value="5" '.$checked.'>Vybraná pobočka</li>';
+        echo '              </ul>';
         echo '              <input type="hidden" name="uzi_id" class="w100p" value="' . $param["data"][0]["uzi"]->id . '" />';
         echo '              <div class="tlacpas">';
         echo '                  <input type="button" class="tlacitko" value="Uložit" jmp="uzivatel" pre="uzivatel" fce="uloz" par="id=' . $param["id"] . ',str=' . $param["str"] . '" form="polozka" onclick="posli(event)" />';

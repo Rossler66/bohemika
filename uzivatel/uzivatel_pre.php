@@ -33,6 +33,7 @@ class uzivatel_pre extends presenter{
     }
     
     public function seznam($param){
+        if(strpos($_SESSION["opravneni"],"1") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $servPar["str"] = $param["str"];
         $templPar["data"] = $this->service->seznam($servPar);
         $templPar["str"] = $param["str"];
@@ -41,6 +42,7 @@ class uzivatel_pre extends presenter{
     }
     
     public function polozka($param){
+        if(strpos($_SESSION["opravneni"],"1") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $servPar["id"] = $param["id"];
         $temPar["data"] = $this->service->ctiPolozku($servPar);
         $temPar["id"] = $param["id"];
@@ -49,6 +51,7 @@ class uzivatel_pre extends presenter{
     }
     
     public function novpolozka($param){
+        if(strpos($_SESSION["opravneni"],"1") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $temPar["data"] = $this->service->novPolozka(null);
         $temPar["id"] = $param["id"];
         $temPar["str"] = $param["str"];
@@ -56,6 +59,7 @@ class uzivatel_pre extends presenter{
     }
 
     public function uloz($param){
+        if(strpos($_SESSION["opravneni"],"1") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $this->service->uloz($param["form"]["polozka"]);
         
         $vys = array('typ' => 'stranka', 'data' => "./?uzivatel/seznam/str=".$param["str"]);

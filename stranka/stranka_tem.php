@@ -25,7 +25,17 @@ class stranka_tem {
         echo '              <a href="?stranka/obsah/typ=T"><img src="./img/logo.svg" class="logo" /></a>';
         echo '              <div class="menu_pas">';
         foreach ($param["menhor"] as $menu) {
-            echo '<a href="' . $menu["men"]->odkaz . '">' . $menu["men"]->text . '</a>';
+            $target = "";
+            if($menu["men"]->odkaz && $menu["men"]->url){
+                $odkaz = $menu["men"]->odkaz."#".$menu["men"]->url;
+            }elseif($menu["men"]->odkaz){
+                $odkaz = $menu["men"]->odkaz;
+            }else{
+                $odkaz = $menu["men"]->url;
+                $target = ' target="_blank" ';
+            }
+
+            echo '<a href="' . $odkaz . '" '.$target.'>' . $menu["men"]->text . '</a>';
         }
         echo '              </div>';
         echo '          </div>';
@@ -67,8 +77,9 @@ class stranka_tem {
         echo '          <h3>Dokumenty</h3>';
         foreach ($param["dokumenty"] as $pol) {
             $cesta = "./img/" . $pol["sou"]->cesta . "/" . $pol["sou"]->id . "_" . $pol["sou"]->nazev . "." . $pol["sou"]->pripona;
-            echo '<a href="' . $cesta . '">' . $pol["dok"]->nazev . '</a>';
+            echo '<a href="' . $cesta . '" target="_blank">' . $pol["naz"]->nazev . '</a>';
         }
+        echo '<a href="?dokumenty/historie/str=0">historie všech dokumentů</a>';
         echo '      </div>';
         echo '      <div class="pole pole3 poleL">';
         echo '          <h3>Kontakt</h3>';
@@ -105,6 +116,9 @@ class stranka_tem {
         echo '      <p typ="info" onclick="nastavTypBloku(event);">Info</p>';
         echo '      <p typ="standard" onclick="nastavTypBloku(event);">Standard</p>';
         echo '  </div>';
+        echo '  <p class="txs_xs nadpis">Název bloku pro odkaz</p>';
+        echo '<input type="text" onblur="nastavNazevBloku();" id="nazevBloku">';
+
         echo '  <p class="txs_xs nadpis">Posum / smazání</p>';
         echo '  <img src="img/iko_nahoru.svg" onclick="blokNahoru(event);" />';
         echo '  <img src="img/iko_dolu.svg" onclick="blokDolu(event);" />';

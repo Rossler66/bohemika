@@ -1,54 +1,65 @@
 <?php
 
-include_once( 'entita.php' );
+include_once('entita.php');
 
-class web_stranka_zaz_ent extends entita {
+class web_stranka_zaz_ent extends entita
+{
 
     private $id;
     private $typ;
     private $nazev;
     private $obsah;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->polNazev["id"] = "id";
         $this->polNazev["typ"] = "typ";
         $this->polNazev["nazev"] = "nazev";
         $this->polNazev["obsah"] = "obsah";
     }
 
-    public function setId($hod) {
+    public function setId($hod)
+    {
         $this->id = $hod;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setTyp($hod) {
+    public function setTyp($hod)
+    {
         $this->typ = $hod;
     }
 
-    public function getTyp() {
+    public function getTyp()
+    {
         return $this->typ;
     }
 
-    public function setNazev($hod) {
+    public function setNazev($hod)
+    {
         $this->nazev = $hod;
     }
 
-    public function getNazev() {
+    public function getNazev()
+    {
         return $this->nazev;
     }
 
-    public function setObsah($hod) {
+    public function setObsah($hod)
+    {
         $this->obsah = $hod;
     }
 
-    public function getObsah() {
+    public function getObsah()
+    {
         return $this->obsah;
     }
 
-    public function __set($name, $val) {
+    public function __set($name, $val)
+    {
         $value = $val;
         $m = "set" . ucfirst($name);
         if (method_exists($this, $m)) {
@@ -60,7 +71,8 @@ class web_stranka_zaz_ent extends entita {
         }
     }
 
-    public function __get($name) {
+    public function __get($name)
+    {
         $m = "get" . ucfirst($name);
         if (method_exists($this, $m)) {
             return $this->$m();
@@ -73,7 +85,8 @@ class web_stranka_zaz_ent extends entita {
 
 }
 
-class web_provozovna_zaz_ent extends entita {
+class web_provozovna_zaz_ent extends entita
+{
 
     private $id;
     private $zastupce;
@@ -92,7 +105,8 @@ class web_provozovna_zaz_ent extends entita {
     private $poznamka;
     private $krajId;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->polNazev["id"] = "id";
         $this->polNazev["zastupce"] = "zastupce";
         $this->polNazev["mesto"] = "mesto";
@@ -127,135 +141,168 @@ class web_provozovna_zaz_ent extends entita {
         $this->polDef["krajId"] = 0;
     }
 
-    public function setId($hod) {
+    public function setId($hod)
+    {
         $this->id = $hod;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setZastupce($hod) {
+    public function setZastupce($hod)
+    {
         $this->zastupce = $hod;
     }
 
-    public function getZastupce() {
+    public function getZastupce()
+    {
         return $this->zastupce;
     }
 
-    public function setMesto($hod) {
+    public function setMesto($hod)
+    {
         $this->mesto = $hod;
     }
 
-    public function getMesto() {
+    public function getMesto()
+    {
         return $this->mesto;
     }
 
-    public function setUlice($hod) {
+    public function setUlice($hod)
+    {
         $this->ulice = $hod;
     }
 
-    public function getUlice() {
+    public function getUlice()
+    {
         return $this->ulice;
     }
 
-    public function setTelefon($hod) {
+    public function setTelefon($hod)
+    {
         $this->telefon = $hod;
     }
 
-    public function getTelefon() {
+    public function getTelefon()
+    {
         return $this->telefon;
     }
 
-    public function setEmail($hod) {
+    public function setEmail($hod)
+    {
         $this->email = $hod;
     }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function setMapa($hod) {
+    public function setMapa($hod)
+    {
         $this->mapa = $hod;
     }
 
-    public function getMapa() {
+    public function getMapa()
+    {
         return $this->mapa;
     }
 
-    public function setProvozPo($hod) {
+    public function setProvozPo($hod)
+    {
         $this->provozPo = $hod;
     }
 
-    public function getProvozPo() {
+    public function getProvozPo()
+    {
         return $this->provozPo;
     }
 
-    public function setProvozUt($hod) {
+    public function setProvozUt($hod)
+    {
         $this->provozUt = $hod;
     }
 
-    public function getProvozUt() {
+    public function getProvozUt()
+    {
         return $this->provozUt;
     }
 
-    public function setProvozSt($hod) {
+    public function setProvozSt($hod)
+    {
         $this->provozSt = $hod;
     }
 
-    public function getProvozSt() {
+    public function getProvozSt()
+    {
         return $this->provozSt;
     }
 
-    public function setProvozCt($hod) {
+    public function setProvozCt($hod)
+    {
         $this->provozCt = $hod;
     }
 
-    public function getProvozCt() {
+    public function getProvozCt()
+    {
         return $this->provozCt;
     }
 
-    public function setProvozPa($hod) {
+    public function setProvozPa($hod)
+    {
         $this->provozPa = $hod;
     }
 
-    public function getProvozPa() {
+    public function getProvozPa()
+    {
         return $this->provozPa;
     }
 
-    public function setProvozSo($hod) {
+    public function setProvozSo($hod)
+    {
         $this->provozSo = $hod;
     }
 
-    public function getProvozSo() {
+    public function getProvozSo()
+    {
         return $this->provozSo;
     }
 
-    public function setProvozNe($hod) {
+    public function setProvozNe($hod)
+    {
         $this->provozNe = $hod;
     }
 
-    public function getProvozNe() {
+    public function getProvozNe()
+    {
         return $this->provozNe;
     }
 
-    public function setPoznamka($hod) {
+    public function setPoznamka($hod)
+    {
         $this->poznamka = $hod;
     }
 
-    public function getPoznamka() {
+    public function getPoznamka()
+    {
         return $this->poznamka;
     }
 
-    public function setKrajId($hod) {
+    public function setKrajId($hod)
+    {
         $this->krajId = $hod;
     }
 
-    public function getKrajId() {
+    public function getKrajId()
+    {
         return $this->krajId;
     }
 
-    public function __set($name, $val) {
+    public function __set($name, $val)
+    {
         $value = $val;
         $m = "set" . ucfirst($name);
         if (method_exists($this, $m)) {
@@ -267,7 +314,8 @@ class web_provozovna_zaz_ent extends entita {
         }
     }
 
-    public function __get($name) {
+    public function __get($name)
+    {
         $m = "get" . ucfirst($name);
         if (method_exists($this, $m)) {
             return $this->$m();
@@ -280,33 +328,40 @@ class web_provozovna_zaz_ent extends entita {
 
 }
 
-class kat_kraje_kat_ent extends entita {
+class kat_kraje_kat_ent extends entita
+{
 
     private $id;
     private $nazev;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->polNazev["id"] = "id";
         $this->polNazev["nazev"] = "nazev";
     }
 
-    public function setId($hod) {
+    public function setId($hod)
+    {
         $this->id = $hod;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setNazev($hod) {
+    public function setNazev($hod)
+    {
         $this->nazev = $hod;
     }
 
-    public function getNazev() {
+    public function getNazev()
+    {
         return $this->nazev;
     }
 
-    public function __set($name, $val) {
+    public function __set($name, $val)
+    {
         $value = $val;
         $m = "set" . ucfirst($name);
         if (method_exists($this, $m)) {
@@ -318,7 +373,8 @@ class kat_kraje_kat_ent extends entita {
         }
     }
 
-    public function __get($name) {
+    public function __get($name)
+    {
         $m = "get" . ucfirst($name);
         if (method_exists($this, $m)) {
             return $this->$m();
@@ -331,67 +387,151 @@ class kat_kraje_kat_ent extends entita {
 
 }
 
-
-class web_dokumenty_zaz_ent extends entita {
-
+class web_dokumenty_kat_ent extends entita
+{
     private $id;
     private $nazev;
-    private $souborId;
+    private $popis;
 
-    public function __construct() {
+    public function __construct()
+    {
+        parent:: __construct();
         $this->polNazev["id"] = "id";
         $this->polNazev["nazev"] = "nazev";
-        $this->polNazev["souborId"] = "soubor_id";
+        $this->polNazev["popis"] = "popis";
+
         $this->polDef["id"] = 0;
         $this->polDef["nazev"] = " ";
-        $this->polDef["souborId"] = 0;
+        $this->polDef["popis"] = " ";
     }
 
-    public function setId($hod) {
+    public function setId($hod)
+    {
         $this->id = $hod;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function setNazev($hod) {
+    public function setNazev($hod)
+    {
         $this->nazev = $hod;
     }
 
-    public function getNazev() {
+    public function getNazev()
+    {
         return $this->nazev;
     }
 
-    public function setSouborId($hod) {
+    public function setPopis($hod)
+    {
+        $this->popis = $hod;
+    }
+
+    public function getPopis()
+    {
+        return $this->popis;
+    }
+
+    public function __set($name, $val)
+    {
+        $m = "set" . ucfirst($name);
+        $this->$m($val);
+    }
+
+    public function __get($name)
+    {
+        $m = "get" . ucfirst($name);
+        return $this->$m();
+    }
+}
+
+class web_dokumenty_zaz_ent extends entita
+{
+
+    private $id;
+    private $souborId;
+    private $nazevId;
+    private $platnostOd;
+    private $platny;
+
+    public function __construct()
+    {
+        $this->polNazev["id"] = "id";
+        $this->polNazev["souborId"] = "soubor_id";
+        $this->polNazev["nazevId"] = "nazev_id";
+        $this->polNazev["platnostOd"] = "platnost_od";
+        $this->polNazev["platny"] = "platny";
+
+        $this->polDef["id"] = 0;
+        $this->polDef["souborId"] = 0;
+        $this->polDef["nazevId"] = 0;
+        $this->polDef["platnostOd"] = " ";
+        $this->polDef["platny"] = "N";
+    }
+
+    public function setId($hod)
+    {
+        $this->id = $hod;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setSouborId($hod)
+    {
         $this->souborId = $hod;
     }
 
-    public function getSouborId() {
+    public function getSouborId()
+    {
         return $this->souborId;
     }
 
-    public function __set($name, $val) {
-        $value = $val;
-        $m = "set" . ucfirst($name);
-        if (method_exists($this, $m)) {
-            $this->$m($value);
-        }
-        $m = "set" . ucfirst($this->jmenoPolozky($name));
-        if (method_exists($this, $m)) {
-            $this->$m($value);
-        }
+    public function setNazevId($hod)
+    {
+        $this->nazevId = $hod;
     }
 
-    public function __get($name) {
+    public function getNazevId()
+    {
+        return $this->nazevId;
+    }
+
+    public function setPlatnostOd($hod)
+    {
+        $this->platnostOd = $hod;
+    }
+
+    public function getPlatnostOd()
+    {
+        return $this->platnostOd;
+    }
+
+    public function setPlatny($hod)
+    {
+        $this->platny = $hod;
+    }
+
+    public function getPlatny()
+    {
+        return $this->platny;
+    }
+
+    public function __set($name, $val)
+    {
+        $m = "set" . ucfirst($name);
+        $this->$m($val);
+    }
+
+    public function __get($name)
+    {
         $m = "get" . ucfirst($name);
-        if (method_exists($this, $m)) {
-            return $this->$m();
-        }
-        $m = "get" . ucfirst($this->jmenoPolozky($name));
-        if (method_exists($this, $m)) {
-            return $this->$m();
-        }
+        return $this->$m();
     }
 
 }

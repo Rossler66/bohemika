@@ -75,6 +75,7 @@ p.text_L {
     justify-content: center;
     position: relative;
     min-height: 40px;
+    background: fixed;
 }
 
 .container {
@@ -260,6 +261,7 @@ p.text_L {
 
 .nav {
     font-size: 12px;
+    width: 100%;
 }
 
 .pole form {
@@ -367,6 +369,15 @@ textarea {
     padding: 10px 20px;
 }
 
+.formular ul{
+   list-style: none;
+    padding: 10px 20px;
+}
+
+.formular ul input{
+margin-right: 10px;
+}
+
 .tlacpas {
     display: flex;
     flex-direction: row;
@@ -456,7 +467,7 @@ td .volbysez img {
 /****************************************************************************/
 
 .stin {
-    box-shadow: 3px 2px 8px rgba(179, 179, 179, 0.4);
+    box-shadow: 3px 2px 8px rgb(155 153 153 / 60%);
 }
 
 

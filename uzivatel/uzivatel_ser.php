@@ -59,7 +59,16 @@ class uzivatel_ser extends service {
     public function uloz($param) {
         $polozkaRep = $this->vratObjekt("uzivatel", "uzivatel_rep", "uzi_uzivatel_zaz_rep");
         $polozkaEnt = $polozkaRep->nactiFormular($param);
-        $polozkaEnt[0]["uzi"]->opravneni = "A";
+
+        $opravneni = "";
+        if(array_key_exists("opr_uzivatele",$param)){$opravneni .= $param["opr_uzivatele"];}
+        if(array_key_exists("opr_dokumenty",$param)){$opravneni .= $param["opr_dokumenty"];}
+        if(array_key_exists("opr_stranky",$param)){$opravneni .= $param["opr_stranky"];}
+        if(array_key_exists("opr_pobocky",$param)){$opravneni .= $param["opr_pobocky"];}
+        if(array_key_exists("opr_pobocka",$param)){$opravneni .= $param["opr_pobocka"];}
+
+        $polozkaEnt[0]["uzi"]->opravneni = $opravneni;
+
         if ($polozkaEnt[0]["uzi"]->heslo != "") {
             $polozkaEnt[0]["uzi"]->heslo = $this->hesloCrypt($polozkaEnt[0]["uzi"]->heslo);
             $polozky = array("login", "heslo", "jmeno", "opravneni", "email");

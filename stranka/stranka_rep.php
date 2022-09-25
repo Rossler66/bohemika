@@ -74,6 +74,23 @@ class kat_kraje_kat_rep extends repository {
 
 }
 
+class web_dokumenty_naz_rep extends repository {
+
+    public function __construct() {
+        include_once 'stranka/stranka_ent.php';
+        $this->definice = array(
+            "naz" =>
+                array(
+                    "tabulka" => "web_dokumenty_kat",
+                    "entita" => "web_dokumenty_kat_ent",
+                    "alias" => "naz",
+                ),
+        );
+    }
+
+}
+
+
 class web_dokumenty_zaz_rep extends repository {
 
     public function __construct() {
@@ -85,6 +102,13 @@ class web_dokumenty_zaz_rep extends repository {
                 "entita" => "web_dokumenty_zaz_ent",
                 "alias" => "dok",
             ),
+            "naz" =>
+                array(
+                    "tabulka" => "web_dokumenty_kat",
+                    "entita" => "web_dokumenty_kat_ent",
+                    "alias" => "naz",
+                    "join" => "dok.nazev_id = naz.id",
+                ),
         );
     }
 
@@ -102,6 +126,13 @@ class web_dokumenty_soubor_rep extends repository {
                 "entita" => "web_dokumenty_zaz_ent",
                 "alias" => "dok",
             ),
+            "naz" =>
+                array(
+                    "tabulka" => "web_dokumenty_kat",
+                    "entita" => "web_dokumenty_kat_ent",
+                    "alias" => "naz",
+                    "join" => "dok.nazev_id = naz.id",
+                ),
             "sou" =>
             array(
                 "tabulka" => "web_soubory_kat",
