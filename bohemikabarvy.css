@@ -142,6 +142,11 @@ textarea{
     background-color: #00589720;
 }
 
+.bcg_pozadi{
+    background: fixed;
+    background-image: url(./img/pozadi.jpg);
+}
+
 .col_bila{
     color: #ffffff;
 }

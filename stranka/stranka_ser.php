@@ -58,8 +58,13 @@ class stranka_ser extends service{
 
         $vys .= '<table>';
         while ($dStr = $pStr->fetch_assoc()) {
-            $vys .= '<tr><td><a   onclick="vlozOdkaz(event,'.$dStr["id"].');" class="tlacitko">' . $dStr["nazev"] . '</a></td></tr>';
+            $odkaz = '?stranka/obsah/id='.$dStr["id"];
+            $vys .= '<tr><td><a   onclick="vlozOdkaz(event,\''.$odkaz.'\');" class="tlacitko">' . $dStr["nazev"] . '</a></td></tr>';
         }
+
+        $odkaz = '?provozovna/vypis/str=1';
+        $vys .= '<tr><td><a   onclick="vlozOdkaz(event,\''.$odkaz.'\');" class="tlacitko">Pobočky</a></td></tr>';
+
         $vys .= '<tr><td><input type="text" placeholder="URL jako odkaz" id="odkazURL"><a   onclick="vlozOdkazURL(event);" class="tlacitko">vlož URL jako odkaz</a></td></tr>';
         $vys .= '</table>';
         $vys .= '</div>';

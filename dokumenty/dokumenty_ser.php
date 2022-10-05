@@ -9,6 +9,9 @@ class dokumenty_ser extends service {
         if (array_key_exists("order", $param) && $param["order"]) {
             $sezPar["order"] = $param["order"];
         }
+        if (array_key_exists("where", $param) && $param["where"]) {
+            $sezPar["where"] = $param["where"];
+        }
         if (array_key_exists("str", $param) && $param["str"]) {
             $sezPar["offset"] = $param["str"];
         }
@@ -29,11 +32,20 @@ class dokumenty_ser extends service {
     public function uloz($param) {
         $polozkaRep = $this->vratObjekt("stranka", "stranka_rep", "web_dokumenty_zaz_rep");
         $polozkaEnt = $polozkaRep->nactiFormular($param);
-        $polozkaEnt[0]["naz"]->popis = " ";
-        $polozkaEnt[0]["naz"]->id = $polozkaEnt[0]["dok"]->nazevId;
-        $polozkaRep->uloz($polozkaEnt[0]["naz"],"naz");
-        $polozkaEnt[0]["dok"]->nazevId = $polozkaEnt[0]["naz"]->id;
+//        $polozkaEnt[0]["naz"]->popis = " ";
+//        $polozkaEnt[0]["naz"]->id = $polozkaEnt[0]["dok"]->nazevId;
+//        $polozkaRep->uloz($polozkaEnt[0]["naz"],"naz");
+//        $polozkaEnt[0]["dok"]->nazevId = $polozkaEnt[0]["naz"]->id;
         $polozkaRep->uloz($polozkaEnt[0]["dok"], "dok");
+
+        if($polozkaEnt[0]["dok"]->platny == "A"){
+            $dokumentPar["where"] = "dok.id = ".$polozkaEnt[0]["dok"]->id;
+            $dokumentEnt = $this->nactiSeznam("stranka","stranka_rep","web_dokumenty_soubor_rep",$dokumentPar);
+            $zdroj = "./img/".$dokumentEnt[0]["sou"]->cesta."/".$dokumentEnt[0]["sou"]->id."_".$dokumentEnt[0]["sou"]->nazev.".".$dokumentEnt[0]["sou"]->pripona;
+            $cil = $dokumentEnt[0]["naz"]->slozka."/".$dokumentEnt[0]["naz"]->soubor;
+            copy($zdroj,$cil);
+        }
+
         return $polozkaEnt;
     }
 

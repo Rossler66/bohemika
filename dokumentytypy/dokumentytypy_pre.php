@@ -1,19 +1,19 @@
 <?php
 
 
-include_once( "presenter.php" );
-class dokumenty_pre extends presenter{
+include_once("presenter.php");
+class dokumentytypy_pre extends presenter{
 
     //put your code here
     private $service;
     private $template;
 
     function __construct() {
-        $this->service = $this->vratObjekt("dokumenty", "dokumenty_ser", "dokumenty_ser");
-        $this->template = $this->vratObjekt("dokumenty", "dokumenty_tem", "dokumenty_tem");
+        $this->service = $this->vratObjekt("dokumentytypy", "dokumentytypy_ser", "dokumentytypy_ser");
+        $this->template = $this->vratObjekt("dokumentytypy", "dokumentytypy_tem", "dokumentytypy_tem");
     }
-    
-    
+
+
     public function seznam($param){
         if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $servPar["str"] = $param["str"];
@@ -21,7 +21,7 @@ class dokumenty_pre extends presenter{
         $templPar["str"] = $param["str"];
         $this->template->pisSeznam($templPar);
     }
-    
+
     public function polozka($param){
         if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $servPar["id"] = $param["id"];
@@ -29,20 +29,14 @@ class dokumenty_pre extends presenter{
         $temPar["id"] = $param["id"];
         $temPar["str"] = $param["str"];
 
-        $nazvyPar["order"] = "naz.nazev";
-        $nazvyPar["limit"] = 999;
-        $temPar["nazvy"] = $this->nactiSeznam("stranka","stranka_rep","web_dokumenty_naz_rep",$nazvyPar);
         $this->template->pisPolozku($temPar);
     }
-    
+
     public function novpolozka($param){
         if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $temPar["data"] = $this->service->novPolozka(null);
         $temPar["id"] = $param["id"];
         $temPar["str"] = $param["str"];
-        $nazvyPar["order"] = "naz.nazev";
-        $nazvyPar["limit"] = 999;
-        $temPar["nazvy"] = $this->nactiSeznam("stranka","stranka_rep","web_dokumenty_naz_rep",$nazvyPar);
 
         $this->template->pisPolozku($temPar);
     }
@@ -50,13 +44,13 @@ class dokumenty_pre extends presenter{
     public function uloz($param){
         if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $dokument = $this->service->uloz($param["form"]["polozka"]);
-        $vys = array('typ' => 'stranka', 'data' => "./?dokumenty/seznam/str=".$param["str"]);
+        $vys = array('typ' => 'stranka', 'data' => "./?dokumentytypy/seznam/str=".$param["str"]);
         $json = json_encode($vys);
         echo '{"token":[';
         echo $json;
         echo "]}";
     }
-    
+
 
     public function smazpolozka($param){
         if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
@@ -64,37 +58,6 @@ class dokumenty_pre extends presenter{
         $this->service->smazpolozka($serPar);
         $sezPar["str"] = $param["str"];
         $this->seznam($sezPar);
-    }
-
-    public function soubor($param){
-        if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
-        $souborSer = $this->vratObjekt("soubor", "soubor_ser", "soubor_ser");
-        $soubor = $souborSer->nahraj($param);
-        $data["id"] = "dok_souborId";
-        $data["value"] = $soubor["id"];
-        $vys = array('typ' => 'setvalue', 'data' => $data);
-        $json = json_encode($vys);
-        echo '{"token":[';
-        echo $json;
-        echo "]}";
-
-    }
-
-    public function platne($param){
-        $servPar["str"] = $param["str"];
-        $servPar["where"] = "dok.platny = 'A'";
-        $templPar["data"] = $this->service->seznam($servPar);
-        $templPar["str"] = $param["str"];
-        $this->template->pisHistorie($templPar);
-    }
-
-
-    public function historie($param){
-        $servPar["str"] = $param["str"];
-        $servPar["where"] = "dok.platny != 'A'";
-        $templPar["data"] = $this->service->seznam($servPar);
-        $templPar["str"] = $param["str"];
-        $this->template->pisHistorie($templPar);
     }
 
 }

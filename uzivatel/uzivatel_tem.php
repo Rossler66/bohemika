@@ -110,6 +110,7 @@ class uzivatel_tem extends template {
         $vys .= '       <a href="?stranka/editor/typ=T,id=0" class="tlacitko">Úprava stránky</a>';
         $vys .= '       <a href="?provozovna/seznam/str=0" class="tlacitko">Pobočky</a>';
         $vys .= '       <a href="?dokumenty/seznam/str=0" class="tlacitko">Dokumety</a>';
+        $vys .= '       <a href="?dokumentytypy/seznam/str=0" class="tlacitko">Typy dokumetů</a>';
         $vys .= '       <a href="?uzivatel/seznam/str=0" class="tlacitko">Uživatelé</a>';
         $vys .= '</div>';
 
@@ -170,7 +171,7 @@ class uzivatel_tem extends template {
         if(strpos($param["data"][0]["uzi"]->opravneni,"4")){$checked = "checked";}else{$checked = "";}
         echo '                <li><input type="checkbox" name="opr_pobocky" value="4" '.$checked.'>Pobočky</li>';
         if(strpos($param["data"][0]["uzi"]->opravneni,"5")){$checked = "checked";}else{$checked = "";}
-        echo '                <li><input type="checkbox" name="opr_pobocka" value="5" '.$checked.'>Vybraná pobočka</li>';
+//        echo '                <li><input type="checkbox" name="opr_pobocka" value="5" '.$checked.'>Vybraná pobočka</li>';
         echo '              </ul>';
         echo '              <input type="hidden" name="uzi_id" class="w100p" value="' . $param["data"][0]["uzi"]->id . '" />';
         echo '              <div class="tlacpas">';

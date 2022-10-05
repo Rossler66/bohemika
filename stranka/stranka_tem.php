@@ -75,11 +75,14 @@ class stranka_tem {
         echo '      </div>';
         echo '      <div class="pole pole3 poleL">';
         echo '          <h3>Dokumenty</h3>';
+/*
         foreach ($param["dokumenty"] as $pol) {
             $cesta = "./img/" . $pol["sou"]->cesta . "/" . $pol["sou"]->id . "_" . $pol["sou"]->nazev . "." . $pol["sou"]->pripona;
             echo '<a href="' . $cesta . '" target="_blank">' . $pol["naz"]->nazev . '</a>';
         }
-        echo '<a href="?dokumenty/historie/str=0">historie všech dokumentů</a>';
+*/
+        echo '<a href="?dokumenty/platne/str=0">Platné dokumenty</a>';
+        echo '<a href="?dokumenty/historie/str=0">Historie všech dokumentů</a>';
         echo '      </div>';
         echo '      <div class="pole pole3 poleL">';
         echo '          <h3>Kontakt</h3>';

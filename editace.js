@@ -7,6 +7,7 @@
 var bEditace = false;
 var editObj = null;
 var editpanel = null;
+var dragObjekt = null;
 
 
 
@@ -70,6 +71,9 @@ function editmod() {
             addDiv.classList.add("pridejpole");
             addDiv.addEventListener("click", pridejPole);
             bloky[ii].appendChild(addDiv);
+            bloky[ii].setAttribute("draggable",true);
+            bloky[ii].addEventListener("drop",prvekDrop);
+            bloky[ii].addEventListener("drop",prvekDrag);
         }
         let pole = obsah.getElementsByClassName("pole");
         for (let ii = 0; ii < pole.length; ii++) {
@@ -84,12 +88,39 @@ function editmod() {
             addDiv.classList.add("pridejprvek");
             addDiv.addEventListener("click", pridejPrvek);
             pole[ii].appendChild(addDiv);
+
+            pole[ii].setAttribute("draggable",true);
+            pole[ii].addEventListener("drop",prvekDrop);
+            pole[ii].addEventListener("drop",prvekDrag);
         }
     }
 }
 
+function prvekDrag(evt){
+    if(!evt.target){
+        return;
+    }
+    dragObjekt = evt.target;
+    let className = dragObjekt.className;
+    alert(className);
+}
 
+function prvekDrop(evt){
+    if(!evt.target || dragObjekt === null){
+        return;
+    }
+    let dropObjekt = evt.target;
+    let className = dropObjekt.className;
+    alert(className);
+return;
+/*
+    if(dragObjekt == dropObjekt){
+        return;
+    }
+    let calssName = dragObjekt.getClassName();
 
+ */
+}
 
 function zavriPanel() {
     if (editpanel) {
@@ -842,7 +873,7 @@ function nabOdkazy() {
 
 function vlozOdkaz(evt,odkaz){
     let odkA = editObj.getElementsByTagName("A")[0];
-    let cesta = "?stranka/obsah/id="+odkaz;
+    let cesta = odkaz;
     odkA.href =cesta;
     zavridialog(evt);
 }

@@ -56,10 +56,8 @@ class dokumenty_tem extends template {
         }
         echo '              </select>';
 
-        echo '              <div class="nav">Zadat nebo upravit název</div>';
-        echo '              <input class="w100p" type="text" name="naz_nazev" value="'.$param["data"][0]["naz"]->nazev.'" id="dokNazev" />';
-
-
+//        echo '              <div class="nav">Zadat nebo upravit název</div>';
+//        echo '              <input class="w100p" type="text" name="naz_nazev" value="'.$param["data"][0]["naz"]->nazev.'" id="dokNazev" />';
 
         echo '              <div class="nav">Platnost Od</div>';
         echo '              <input type="date" name="dok_platnostOd" value="' . $param["data"][0]["dok"]->platnostOd . '" />';
@@ -92,20 +90,20 @@ class dokumenty_tem extends template {
         echo '<div class="pole pole1 poleL">';
         echo '<div class="volbysez">';
 
-        echo '<a href="./?dokumenty/novpolozka/id=0,str=' . $param["str"] . '"><img src="./img/iko_plus.svg" /></a>';
+//        echo '<a href="./?dokumenty/novpolozka/id=0,str=' . $param["str"] . '"><img src="./img/iko_plus.svg" /></a>';
         if ($param["str"] > 0) {
             echo '<a href="./?dokumenty/seznam/str=' . ($param["str"] - 1) . '"><img src="./img/iko_doleva.svg" /></a>';
         }
         echo '<a href="./?dokumenty/seznam/str=' . ($param["str"] + 1) . '"><img src="./img/iko_doprava.svg" /></a>';
         echo '</div>';
         echo '<table class="seznam">';
-        echo '<tr><th class="tal">Název</th><th class="tal">Označení</th><th class="tal">Platnost od</th><th class="tal">Platnost</th><th class="tar">Zobrazit</th></tr>';
+        echo '<tr><th class="tal">Název</th><th class="tal">Popis</th><th class="tal">Platnost od</th><th class="tar">Zobrazit</th></tr>';
         foreach ($param["data"] as $rad) {
             $cesta = "./img/".$rad["sou"]->cesta."/".$rad["sou"]->id."_".$rad["sou"]->nazev.".".$rad["sou"]->pripona;
             echo '<tr><td>' . $rad["naz"]->nazev . '</td>';
-            echo '<td>' . $rad["sou"]->puvodniNazev . '</td>';
-            echo '<td>' . $rad["dok"]->platnostOd . '</td>';
-            echo '<td>' . $rad["dok"]->platny . '</td>';
+            echo '<td>' . $rad["naz"]->popis . '</td>';
+            echo '<td>' . $this->datum($rad["dok"]->platnostOd) . '</td>';
+//            echo '<td>' . $rad["dok"]->platny . '</td>';
             echo '<td><div class="volbysez">';
             echo '<a href="'.$cesta.'" target="_blank" class="iko"><img src="./img/iko_dokument.svg"></a>';
             echo '</div></td></tr>';
