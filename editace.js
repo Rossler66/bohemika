@@ -72,8 +72,8 @@ function editmod() {
             addDiv.addEventListener("click", pridejPole);
             bloky[ii].appendChild(addDiv);
             bloky[ii].setAttribute("draggable",true);
-            bloky[ii].addEventListener("drop",prvekDrop);
-            bloky[ii].addEventListener("drop",prvekDrag);
+//            bloky[ii].addEventListener("drop",prvekDragEnd);
+//            bloky[ii].addEventListener("dragstart",prvekDragStart);
         }
         let pole = obsah.getElementsByClassName("pole");
         for (let ii = 0; ii < pole.length; ii++) {
@@ -90,36 +90,43 @@ function editmod() {
             pole[ii].appendChild(addDiv);
 
             pole[ii].setAttribute("draggable",true);
-            pole[ii].addEventListener("drop",prvekDrop);
-            pole[ii].addEventListener("drop",prvekDrag);
+//            pole[ii].addEventListener("drop",prvekDragEnd);
+//            pole[ii].addEventListener("dragstart",prvekDragStart);
         }
     }
 }
 
-function prvekDrag(evt){
+function prvekDragStart(evt){
     if(!evt.target){
         return;
     }
     dragObjekt = evt.target;
-    let className = dragObjekt.className;
-    alert(className);
+//    let className = dragObjekt.className;
+//    alert(className);
 }
 
-function prvekDrop(evt){
-    if(!evt.target || dragObjekt === null){
+function prvekDragEnd(evt){
+    if(!drag || dragObjekt === null){
         return;
     }
     let dropObjekt = evt.target;
+    let classStart = 0;
+    if(dragObject.classList.contains("pole")){$classStrart = "P";}
+    if(dragObject.classList.contains("block")){$classStrart = "B";}
+
+    if(dragObject.classList.contains("pole")){$classStrart = "P";}
+    if(dragObject.classList.contains("block")){$classStrart = "B";}
+
+    let classCil
     let className = dropObjekt.className;
-    alert(className);
-return;
-/*
+//    alert(className);
     if(dragObjekt == dropObjekt){
         return;
     }
-    let calssName = dragObjekt.getClassName();
+//    let calssName = dragObjekt.getClassName();
+    dropObjekt.appendChild(dragObjekt);
+    dragObjekt = null;
 
- */
 }
 
 function zavriPanel() {

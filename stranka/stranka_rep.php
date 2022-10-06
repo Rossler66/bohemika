@@ -145,3 +145,26 @@ class web_dokumenty_soubor_rep extends repository {
 
 }
 
+class web_spoluprace_rep extends repository {
+
+    public function __construct() {
+        include_once 'stranka/stranka_ent.php';
+        $this->definice = array(
+            "spo" =>
+                array(
+                    "tabulka" => "web_spoluprace_zaz",
+                    "entita" => "web_spoluprace_zaz_ent",
+                    "alias" => "spo",
+                ),
+            "pro" =>
+                array(
+                    "tabulka" => "web_provozovna_zaz",
+                    "entita" => "web_provozovna_zaz_ent",
+                    "alias" => "pro",
+                    "join" => "spo.provozovna_id = pro.id",
+                ),
+        );
+    }
+
+}
+

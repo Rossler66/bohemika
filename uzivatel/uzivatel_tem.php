@@ -110,6 +110,7 @@ class uzivatel_tem extends template {
         $vys .= '       <a href="?stranka/editor/typ=T,id=0" class="tlacitko">Úprava stránky</a>';
         $vys .= '       <a href="?provozovna/seznam/str=0" class="tlacitko">Pobočky</a>';
         $vys .= '       <a href="?dokumenty/seznam/str=0" class="tlacitko">Dokumety</a>';
+        $vys .= '       <a href="?spoluprace/seznam/str=0" class="tlacitko">Nabídka spolupráce</a>';
         $vys .= '       <a href="?dokumentytypy/seznam/str=0" class="tlacitko">Typy dokumetů</a>';
         $vys .= '       <a href="?uzivatel/seznam/str=0" class="tlacitko">Uživatelé</a>';
         $vys .= '</div>';

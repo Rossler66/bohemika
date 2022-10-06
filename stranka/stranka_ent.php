@@ -560,3 +560,91 @@ class web_dokumenty_zaz_ent extends entita
     }
 
 }
+
+
+class web_spoluprace_zaz_ent extends entita
+{
+    private $id;
+    private $provozovnaId;
+    private $datum;
+    private $pozice;
+    private $popis;
+
+    public function __construct()
+    {
+        parent:: __construct();
+        $this->polNazev["id"] = "id";
+        $this->polNazev["provozovnaId"] = "provozovna_id";
+        $this->polNazev["datum"] = "datum";
+        $this->polNazev["pozice"] = "pozice";
+        $this->polNazev["popis"] = "popis";
+
+        $this->polDef["id"] = 0;
+        $this->polDef["provozovnaId"] = 0;
+        $this->polDef["datum"] = " ";
+        $this->polDef["pozice"] = " ";
+        $this->polDef["popis"] = " ";
+    }
+
+    public function setId($hod)
+    {
+        $this->id = $hod;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setProvozovnaId($hod)
+    {
+        $this->provozovnaId = $hod;
+    }
+
+    public function getProvozovnaId()
+    {
+        return $this->provozovnaId;
+    }
+
+    public function setDatum($hod)
+    {
+        $this->datum = $hod;
+    }
+
+    public function getDatum()
+    {
+        return $this->datum;
+    }
+
+    public function setPozice($hod)
+    {
+        $this->pozice = $hod;
+    }
+
+    public function getPozice()
+    {
+        return $this->pozice;
+    }
+
+    public function setPopis($hod)
+    {
+        $this->popis = $hod;
+    }
+
+    public function getPopis()
+    {
+        return $this->popis;
+    }
+
+    public function __set($name, $val)
+    {
+        $m = "set" . ucfirst($name);
+        $this->$m($val);
+    }
+
+    public function __get($name)
+    {
+        $m = "get" . ucfirst($name);
+        return $this->$m();
+    }
+}

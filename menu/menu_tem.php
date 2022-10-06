@@ -81,6 +81,14 @@ class menu_tem extends template {
             $sel = "";
         }
         echo '              <option value="'.$odkaz.'" ' . $sel . ' >Pobočky</option>';
+        $odkaz = "?spoluprace/vypis/str=1";
+        if ($odkaz == $param["data"][0]["men"]->odkaz) {
+            $sel = "SELECTED";
+        } else {
+            $sel = "";
+        }
+        echo '              <option value="'.$odkaz.'" ' . $sel . ' >Nabídka spolupráce</option>';
+
         echo '              </select>';
         echo '              <div class="nav">URL adresa nebo název pole</div>';
         echo '              <input class="w100p" type="text" name="men_url" value="' . $param["data"][0]["men"]->url . '" />';
