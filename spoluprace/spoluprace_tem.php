@@ -91,7 +91,7 @@ zájem zapojit se do našeho kolektivu ... </p>';
             echo '<div class="pole pole3 poleL stin provozovna zoom">';
             echo '<div class="pro_pozice">' . $rad["spo"]->pozice . '</div>';
             if($rad["spo"]->popis > " ") {
-                echo '<div class="pro_poznamka">' . $rad["spo"]->popis . '</div>';
+                echo '<div class="pro_popis">' . $rad["spo"]->popis . '</div>';
             }
 //            echo '<a class="pro_trasa" href="'.$adresa.'" target="_blank">trasa</a>';
             echo '<div class="pro_mesto">' . $rad["pro"]->mesto . '</div>';
