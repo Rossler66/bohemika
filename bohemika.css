@@ -272,7 +272,7 @@ p.text_L {
     position: relative;
 }
 
-input {
+input,select {
     font-size: 18px;
     font-weight: 400;
     padding: 5px 15px;
@@ -281,7 +281,7 @@ input {
     box-sizing: initial;
 }
 
-.inputprvek input {
+.inputprvek input,select {
     width: calc(100% - 30px);
 }
 
@@ -308,10 +308,9 @@ input[type="submit"] {
     padding: 10px;
 }
 
-input:required {
+*:required {
     border-bottom: 1px solid red;
 }
-
 
 select {
     font-size: 18px;
@@ -1167,6 +1166,15 @@ img.logo:hover {
 
 .editpanel .typ p:hover {
     border: 1px solid #0f0;
+}
+
+p.optpolozka{
+    padding: 0 0 0 20px;
+    background-image: url(img/iko_smaz.svg);
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: left center;
+    cursor: pointer;
 }
 
 .editpanel img {

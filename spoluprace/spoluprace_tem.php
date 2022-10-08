@@ -79,7 +79,7 @@ class spoluprace_tem extends template {
 
     public function vypis($param)
     {
-        echo '<div class="block block_standard">';
+        echo '<div class="block block_standard bcg_pozadi">';
         echo '    <div class="container">';
         echo '      <h1 class="col_tmavomodra">Nabídka spolupráce</h1>';
         echo '<div class="pole pole1 poleS">';

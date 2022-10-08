@@ -629,6 +629,21 @@ function pridejInput(evt) {
     form.appendChild(addPrvek);
 }
 
+function pridejSelect(evt) {
+    let form = editObj.getElementsByTagName("FORM")[0];
+    if(!form){
+        form = document.createElement("form");
+        form.setAttribute("action","");
+        form.setAttribute("method","POST");
+        editObj.appendChild(form);
+    }
+    let addPrvek = document.createElement("DIV");
+    addPrvek.classList.add("inputprvek");
+    addPrvek.classList.add("w50po");
+    addPrvek.innerHTML = '<div class="nav">Nadpis</div><select class="prvek" type="text" onkeydown="return event.key !==\'Enter\'"  ><option>aaa</option>></select>';
+    form.appendChild(addPrvek);
+}
+
 function pridejTlacitko(evt) {
     let form = editObj.getElementsByTagName("FORM")[0];
     if(!form){
@@ -671,6 +686,11 @@ function upravPrvek(evt) {
 
         }
     }
+    if (aktPrvek.tagName === "SELECT") {
+        upravSelect(aktPrvek);
+
+    }
+
 }
 
 
@@ -772,6 +792,28 @@ function upravInput(edOb) {
     editpanel.style.display = "block";
     let inp = editpanel.getElementsByTagName("INPUT")[0];
     inp.value = editObj.previousElementSibling.innerHTML;
+}
+
+function upravSelect(edOb) {
+    zavriPanel();
+    editpanel = document.getElementById("editselect");
+    if (editObj) {
+        editObj.classList.remove("editace");
+    }
+    editObj = edOb;
+    editObj.classList.add("editace");
+    editpanel.style.display = "block";
+    let inp = editpanel.getElementsByTagName("INPUT")[0];
+    inp.value = editObj.previousElementSibling.innerHTML;
+    upravSelectOptions();
+}
+
+function upravSelectOptions(){
+    let opt = "";
+    for(let ii = 0; ii < editObj.options.length; ii++){
+        opt = opt + '<p class="optpolozka" index="'+ii+'">'+editObj.options[ii].text+'</p>';
+    }
+    document.getElementById("optionshodnoty").innerHTML = opt;
 
 }
 
@@ -795,6 +837,29 @@ function inputnadpis(evt){
     }
     editObj.previousElementSibling.innerHTML = aktBlok.value;
     editObj.setAttribute("name",aktBlok.value);
+}
+
+function inputhodnota(evt){
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    let opt = document.createElement("OPTION");
+    opt.text = aktBlok.value;
+    editObj.add(opt);
+    aktBlok.value = "";
+    upravSelectOptions();
+}
+
+function deletehodnota(evt){
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
+    let index = aktBlok.getAttribute("index");
+    if(index){
+        editObj.options.remove(index);
+    }
+    upravSelectOptions();
+
 }
 
 function tlacitkopopis(evt){

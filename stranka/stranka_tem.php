@@ -221,6 +221,7 @@ class stranka_tem {
         echo '      <p onclick="pridejText(event);">Text</p>';
         echo '      <p onclick="pridejMapu(event);">Mapa</p>';
         echo '      <p onclick="pridejInput(event);">Formulářovou položku</p>';
+        echo '      <p onclick="pridejSelect(event);">Výběrovou nabídku</p>';
         echo '      <p onclick="pridejTlacitko(event);">Tlačítko odeslat</p>';
         echo '  </div>';
         echo '  <p class="txs_xs nadpis">Posum / smazání</p>';
@@ -252,6 +253,34 @@ class stranka_tem {
         echo '    </div>';
         echo '    <p class="txs_xs nadpis">Název položky</p>';
         echo '    <input type="text" onchange="inputnadpis(event);">';
+        echo '    <div class=barvapole>';
+        echo '        <p class="txs_xs nadpis">Povinné</p>';
+        echo '        <div style="background-color:#FFF"; hodnota="N" onclick="nastavRequired(event);">X</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="A" onclick="nastavRequired(event);">A</div>';
+        echo '    </div>';
+        echo '    <p class="txs_xs nadpis">Šířka položky</p>';
+        echo '    <div class="barvapole">';
+        echo '        <div style="background-color:#FFF"; hodnota="w25po" onclick="nastavSirkuInput(event);">S</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w50po" onclick="nastavSirkuInput(event);">M</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w75po" onclick="nastavSirkuInput(event);">L</div>';
+        echo '        <div style="background-color:#FFF"; hodnota="w100po" onclick="nastavSirkuInput(event);">XL</div>';
+        echo '    </div>';
+        echo '    <p class="txs_xs nadpis">Posum / smazání</p>';
+        echo '    <img src="img/iko_nahoru.svg" onclick="blokNahoruInput(event);">';
+        echo '    <img src="img/iko_dolu.svg" onclick="blokDoluInput(event);">';
+        echo '    <img src="img/iko_smaz.svg" onclick="blokSmazInput(event);">';
+        echo '    <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
+        echo '</div>';
+
+
+        echo '<div class="editpanel formular" id="editselect">';
+        echo '    <h2>Form. položka</h2>';
+        echo '    <p class="txs_xs nadpis">Název položky</p>';
+        echo '    <input type="text" onchange="inputnadpis(event);">';
+        echo '    <p class="txs_xs nadpis">Hodnoty</p>';
+        echo '    <div id="optionshodnoty" onclick="deletehodnota(event);"></div>';
+        echo '    <p class="txs_xs nadpis">Přidat hodnotu</p>';
+        echo '    <input type="text" onchange="inputhodnota(event);">';
         echo '    <div class=barvapole>';
         echo '        <p class="txs_xs nadpis">Povinné</p>';
         echo '        <div style="background-color:#FFF"; hodnota="N" onclick="nastavRequired(event);">X</div>';
