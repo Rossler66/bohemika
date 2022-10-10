@@ -83,8 +83,7 @@ class spoluprace_tem extends template {
         echo '    <div class="container">';
         echo '      <h1 class="col_tmavomodra">Nabídka spolupráce</h1>';
         echo '<div class="pole pole1 poleS">';
-        echo '<p>Pomáháme běžným lidem naplnit si svoje životní cíle a získat jistoty. Hledáme proto splehlivé komunikatviní lidi do svého kolektivu. Jestli máte
-zájem zapojit se do našeho kolektivu ... </p>';
+        echo '<p>Pomáháme lidem plnit cíle a sny. Chcete s námi? Hledáme spolehlivé kolegy do našeho kolektivu.</p>';
         echo '</div>';
         foreach ($param["data"] as $rad) {
             $adresa = 'https://www.google.cz/maps/dir//'.$rad["pro"]->ulice.'+'.$rad["pro"]->psc.'+'.$rad["pro"]->mesto;

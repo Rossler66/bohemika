@@ -48,7 +48,7 @@ class menu_tem extends template {
         } else {
             $sel = "";
         }
-        echo '              <input type="radio" name="men_menuKod" value="Z" ' . $sel . ' />Dolní';
+        echo '              <input type="radio" name="men_menuKod" value="D" ' . $sel . ' />Dolní';
         if ($param["data"][0]["men"]->menuKod == "Z") {
             $sel = "CHECKED";
         } else {
