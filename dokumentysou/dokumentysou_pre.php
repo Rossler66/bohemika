@@ -2,15 +2,15 @@
 
 
 include_once( "presenter.php" );
-class dokumenty_pre extends presenter{
+class dokumentysou_pre extends presenter{
 
     //put your code here
     private $service;
     private $template;
 
     function __construct() {
-        $this->service = $this->vratObjekt("dokumenty", "dokumenty_ser", "dokumenty_ser");
-        $this->template = $this->vratObjekt("dokumenty", "dokumenty_tem", "dokumenty_tem");
+        $this->service = $this->vratObjekt("dokumentysou", "dokumentysou_ser", "dokumentysou_ser");
+        $this->template = $this->vratObjekt("dokumentysou", "dokumentysou_tem", "dokumentysou_tem");
     }
     
     
@@ -50,7 +50,7 @@ class dokumenty_pre extends presenter{
     public function uloz($param){
         if(strpos($_SESSION["opravneni"],"2") === false){echo "<h1 class='w100p bcg_tmavomodra tac'>Neoprávněný přístup</h1>";return;}
         $dokument = $this->service->uloz($param["form"]["polozka"]);
-        $vys = array('typ' => 'stranka', 'data' => "./?dokumenty/seznam/str=".$param["str"]);
+        $vys = array('typ' => 'stranka', 'data' => "./?dokumentysou/seznam/str=".$param["str"]);
         $json = json_encode($vys);
         echo '{"token":[';
         echo $json;

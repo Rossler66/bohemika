@@ -2,7 +2,7 @@
 
 include_once( "service.php" );
 
-class dokumenty_ser extends service {
+class dokumentysou_ser extends service {
 
     public function seznam($param) {
         $sezPar["order"] = "dok.platnost_od desc";
@@ -42,8 +42,10 @@ class dokumenty_ser extends service {
             $dokumentPar["where"] = "dok.id = ".$polozkaEnt[0]["dok"]->id;
             $dokumentEnt = $this->nactiSeznam("stranka","stranka_rep","web_dokumenty_soubor_rep",$dokumentPar);
             $zdroj = "./img/".$dokumentEnt[0]["sou"]->cesta."/".$dokumentEnt[0]["sou"]->id."_".$dokumentEnt[0]["sou"]->nazev.".".$dokumentEnt[0]["sou"]->pripona;
-            $cil = $dokumentEnt[0]["naz"]->slozka."/".$dokumentEnt[0]["naz"]->soubor;
-            copy($zdroj,$cil);
+            $cile = explode(",",$dokumentEnt[0]["naz"]->soubor);
+            foreach($cile as $cil){
+                copy($zdroj,$cil);
+            }
         }
 
         return $polozkaEnt;

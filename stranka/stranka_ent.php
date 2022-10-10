@@ -392,7 +392,6 @@ class web_dokumenty_kat_ent extends entita
     private $id;
     private $nazev;
     private $popis;
-    private $slozka;
     private $soubor;
 
     public function __construct()
@@ -401,12 +400,10 @@ class web_dokumenty_kat_ent extends entita
         $this->polNazev["id"] = "id";
         $this->polNazev["nazev"] = "nazev";
         $this->polNazev["popis"] = "popis";
-        $this->polNazev["slozka"] = "slozka";
         $this->polNazev["soubor"] = "soubor";
         $this->polDef["id"] = 0;
         $this->polDef["nazev"] = " ";
         $this->polDef["popis"] = " ";
-        $this->polDef["slozka"] = " ";
         $this->polDef["soubor"] = " ";
     }
 
@@ -438,16 +435,6 @@ class web_dokumenty_kat_ent extends entita
     public function getPopis()
     {
         return $this->popis;
-    }
-
-    public function setSlozka($hod)
-    {
-        $this->slozka = $hod;
-    }
-
-    public function getSlozka()
-    {
-        return $this->slozka;
     }
 
     public function setSoubor($hod)

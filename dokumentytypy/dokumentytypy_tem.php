@@ -17,10 +17,9 @@ class dokumentytypy_tem extends template {
         echo '<a href="./?dokumenty/seznam/str=' . ($param["str"] + 1) . '"><img src="./img/iko_doprava.svg" /></a>';
         echo '</div>';
         echo '<table class="seznam">';
-        echo '<tr><th class="tal">Název</th><th class="tal">Složka</th><th class="tal">Soubor</th><th class="tar">Volby</th></tr>';
+        echo '<tr><th class="tal">Název</th><th class="tal">Soubor</th><th class="tar">Volby</th></tr>';
         foreach ($param["data"] as $rad) {
             echo '<tr><td>' . $rad["naz"]->nazev . '</td>';
-            echo '<td>' . $rad["naz"]->slozka . '</td>';
             echo '<td>' . $rad["naz"]->soubor . '</td>';
             echo '<td><div class="volbysez">';
             echo '<a href="?dokumentytypy/polozka/id=' . $rad["naz"]->id . ',str=' . $param["str"] . '" class="iko"><img src="./img/iko_edit.svg"></a>';
@@ -44,11 +43,8 @@ class dokumentytypy_tem extends template {
         echo '              <div class="nav">Název dokumentu</div>';
         echo '              <input class="w100p" type="text" name="naz_nazev" value="'.$param["data"][0]["naz"]->nazev.'" />';
 
-        echo '              <div class="nav">Cesta k aktuálnímu dokumentu</div>';
-        echo '              <input class="w100p" type="text" name="naz_slozka" value="'.$param["data"][0]["naz"]->slozka.'" />';
-
-        echo '              <div class="nav">Název souboru aktuálního dokumentu</div>';
-        echo '              <input class="w100p" type="text" name="naz_soubor" value="'.$param["data"][0]["naz"]->soubor.'" />';
+        echo '              <div class="nav">Cesty s názvy uložení aktuálního dokumenu</div>';
+        echo '              <textarea class="w100p" type="textarea" name="naz_soubor">'.$param["data"][0]["naz"]->soubor.'</textarea>';
 
         echo '              <div class="nav">Popis</div>';
         echo '              <textarea class="w100p"  name="naz_popis">'.$param["data"][0]["naz"]->popis.'</textarea>';
