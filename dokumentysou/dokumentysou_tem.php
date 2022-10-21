@@ -105,7 +105,7 @@ class dokumentysou_tem extends template {
             echo '<td>' . $this->datum($rad["dok"]->platnostOd) . '</td>';
 //            echo '<td>' . $rad["dok"]->platny . '</td>';
             echo '<td><div class="volbysez">';
-            echo '<a href="'.$cesta.'" target="_blank" class="iko"><img src="./img/iko_dokument.svg"></a>';
+            echo '<a href="'.$cesta.'" target="_blank" class="iko" download="'.$rad["sou"]->puvodniNazev.'"><img src="./img/iko_dokument.svg"></a>';
             echo '</div></td></tr>';
         }
         echo '</table>';

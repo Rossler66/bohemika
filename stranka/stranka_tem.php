@@ -66,14 +66,18 @@ class stranka_tem {
 
         echo '<div class="block block_pata">';
         echo '  <div class="container">';
-        echo '      <div class="pole pole3 poleL">';
+        echo '      <div class="pole pole4 poleS">';
+        echo '          <img class="logopata" src="./img/logomale.gif">';
+        echo '      </div>';
+
+        echo '      <div class="pole pole4 poleS">';
         echo '          <h3>Nabídka</h3>';
         foreach ($param["nabidka"] as $pol) {
             echo '<a href="' . $pol["men"]->odkaz . '">' . $pol["men"]->text . '</a>';
         }
         echo '<a href="?'.$_SERVER['QUERY_STRING'].',cook=set">Cookies</a>';
         echo '      </div>';
-        echo '      <div class="pole pole3 poleL">';
+        echo '      <div class="pole pole4 poleS">';
         echo '          <h3>Dokumenty</h3>';
 /*
         foreach ($param["dokumenty"] as $pol) {
@@ -81,16 +85,19 @@ class stranka_tem {
             echo '<a href="' . $cesta . '" target="_blank">' . $pol["naz"]->nazev . '</a>';
         }
 */
-        echo '<a href="?dokumenty/platne/str=0">Platné dokumenty</a>';
-        echo '<a href="?dokumenty/historie/str=0">Historie všech dokumentů</a>';
+        echo '<a href="?dokumentysou/platne/str=0">Platné dokumenty</a>';
+        echo '<a href="?dokumentysou/historie/str=0">Historie dokumentů</a>';
         echo '      </div>';
-        echo '      <div class="pole pole3 poleL">';
-        echo '          <h3>Kontakt</h3>';
+        echo '      <div class="pole pole4 poleS">';
+        echo '          <h3>Sídlo společnosti</h3>';
         echo '          <a href="#">Volyňských Čechů 837,<br />Žatec 438 01</a>';
+        echo '      </div>';
+        echo '      <div class="pole pole4 poleS">';
+        echo '          <h3>Kontakt</h3>';
         echo '          <a href="#">+420 810 888 900</a>';
-        echo '          <a href="#">info@bohemika.eu</a>';
-        echo '          <a href="#">FACEBOOK</a>';
-        echo '          <a href="#">INSTAGRAM</a>';
+        echo '          <a href="mailto:info@bohemika.eu">info@bohemika.eu</a>';
+        echo '          <a href="https://www.facebook.com/BohemikaFinancniPoradenstvi/" target="_blank">FACEBOOK</a>';
+        echo '          <a href="https://www.instagram.com/bohemika_cz/" target="_blank">INSTAGRAM</a>';
         echo '      </div>';
         echo '  </div>';
         echo '</div>';
@@ -232,6 +239,9 @@ class stranka_tem {
         echo '<h2>Obrázek</h2>';
         echo '<p class="txs_xs nadpis">Přetažením nahraj obrázek</p>';
         echo '<div class="upload" jmp="stranka" pre="stranka" fce="obrazek" ondrop="nahrajSoubor(event);"></div>';
+        echo '<p class="txs_xs nadpis">Odkaz</p>';
+        echo '<img src="img/iko_edit.svg" onclick="nabOdkazy(event);">';
+        echo '  <img src="img/iko_zavrit.svg" onclick="odkazSmaz(event);" />';
         echo '<p class="txs_xs nadpis">Posum / smazání</p>';
         echo '<img src="img/iko_nahoru.svg" onclick="blokNahoru(event);">';
         echo '<img src="img/iko_dolu.svg" onclick="blokDolu(event);">';
@@ -319,6 +329,18 @@ class stranka_tem {
         echo '    <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
         echo '</div>';
 
+        echo '<div class="editpanel formular" id="editform">';
+        echo '    <h2>Formulář</h2>';
+        echo '    <p class="txs_xs nadpis">Název formuláře</p>';
+        echo '    <input type="text" onchange="formnazev(event);">';
+        echo '    <p class="txs_xs nadpis">Posum / smazání</p>';
+        echo '    <img src="img/iko_nahoru.svg" onclick="blokNahoruInput(event);">';
+        echo '    <img src="img/iko_dolu.svg" onclick="blokDoluInput(event);">';
+        echo '    <img src="img/iko_smaz.svg" onclick="blokSmazInput(event);">';
+        echo '    <img src="img/iko_zavrit.svg" onclick="zavriPanel(event);" />';
+        echo '</div>';
+
+
 
         echo '<div class="editpanel formular" id="editnadpis">';
         echo '<h2>Nadpis</h2>';
@@ -373,6 +395,10 @@ class stranka_tem {
         echo '      <div style="background-color:#FFF"; hodnota="txs_l" onclick="nastavVelikostTextu(event);">L</div>';
         echo '      <div style="background-color:#FFF"; hodnota="txs_xl" onclick="nastavVelikostTextu(event);">XL</div>';
         echo '  </div>';
+
+        echo '<p class="txs_xs nadpis">Odkaz</p>';
+        echo '<img src="img/iko_edit.svg" onclick="nabOdkazy(event);">';
+        echo '  <img src="img/iko_zavrit.svg" onclick="odkazSmaz(event);" />';
 
         echo '  <p class="txs_xs nadpis">Posum / smazání</p>';
         echo '  <img src="img/iko_nahoru.svg" onclick="blokNahoru(event);" />';

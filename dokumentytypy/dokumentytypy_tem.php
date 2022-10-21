@@ -10,11 +10,11 @@ class dokumentytypy_tem extends template {
         echo '<div class="pole pole1 poleL">';
         echo '<div class="volbysez">';
 
-        echo '<a href="./?dokumenty/novpolozka/id=0,str=' . $param["str"] . '"><img src="./img/iko_plus.svg" /></a>';
+        echo '<a href="./?dokumentytypy/novpolozka/id=0,str=' . $param["str"] . '"><img src="./img/iko_plus.svg" /></a>';
         if ($param["str"] > 0) {
-            echo '<a href="./?dokumenty/seznam/str=' . ($param["str"] - 1) . '"><img src="./img/iko_doleva.svg" /></a>';
+            echo '<a href="./?dokumentytypy/seznam/str=' . ($param["str"] - 1) . '"><img src="./img/iko_doleva.svg" /></a>';
         }
-        echo '<a href="./?dokumenty/seznam/str=' . ($param["str"] + 1) . '"><img src="./img/iko_doprava.svg" /></a>';
+        echo '<a href="./?dokumentytypy/seznam/str=' . ($param["str"] + 1) . '"><img src="./img/iko_doprava.svg" /></a>';
         echo '</div>';
         echo '<table class="seznam">';
         echo '<tr><th class="tal">Název</th><th class="tal">Soubor</th><th class="tar">Volby</th></tr>';

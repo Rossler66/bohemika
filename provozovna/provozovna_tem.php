@@ -93,12 +93,18 @@ class provozovna_tem extends template {
         echo '<div class="block  block_standard bcg_pozadi">';
         echo '<div class="container" >';
         echo '<h1 class="col_tmavomodra">Pobočky Bohemika</h1>';
+        echo '<div class="provnab">';
+        foreach ($param["kraje"] as $kraj){
+            echo '<a href="#kraj'.$kraj["kra"]->id.'">'.$kraj["kra"]->nazev.'</a>';
+
+        }
+        echo '</div>';
         $kraj = 0;
         foreach ($param["data"] as $rad) {
             if ($kraj != $rad["pro"]->krajId) {
                 $kraj = $rad["pro"]->krajId;
                 echo '<div class="pole pole1 poleL">';
-                echo '<h2 class="col_tmavomodra">kraj ' . $rad["kra"]->nazev . '</h2>';
+                echo '<h2 class="col_tmavomodra nadpiskraj" id="kraj'.$rad["kra"]->id.'">kraj ' . $rad["kra"]->nazev . '</h2>';
                 echo '</div>';
             }
             $adresa = 'https://www.google.cz/maps/dir//'.$rad["pro"]->ulice.'+'.$rad["pro"]->psc.'+'.$rad["pro"]->mesto;

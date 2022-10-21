@@ -70,6 +70,9 @@ class provozovna_pre extends presenter{
          $servPar["poc"] = 999;
          $servPar["order"] = "pro.kraj_id, pro.mesto";
         $templPar["data"] = $this->service->seznam($servPar);
+        $krajPar["order"] = "kra.nazev";
+        $templPar["kraje"] = $this->nactiSeznam("stranka","stranka_rep","kat_kraje_kat_rep",$krajPar);
+        $templPar["kraje"] = $this->service->aktivnikraje(null);
         $templPar["str"] = $param["str"];
         $this->template->vypis($templPar);
     }

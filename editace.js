@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -40,6 +40,12 @@ function editmod() {
         while (smaz.length > 0) {
             smaz[0].classList.remove("editace");
         }
+        smaz = document.getElementsByTagName("A");
+        for (let ii = 0; ii < odkA.length; ii++) {
+            smaz[ii].removeAttribute("onclick");
+        }
+
+
     } else {
         bEditace = true;
         editbod.style.backgroundColor = "#f00a";
@@ -92,6 +98,10 @@ function editmod() {
             pole[ii].setAttribute("draggable",true);
 //            pole[ii].addEventListener("drop",prvekDragEnd);
 //            pole[ii].addEventListener("dragstart",prvekDragStart);
+        }
+        odkA = document.getElementsByTagName("A");
+        for (let ii = 0; ii < odkA.length; ii++) {
+            odkA[ii].setAttribute("onclick","return false;");
         }
     }
 }
@@ -618,6 +628,8 @@ function pridejInput(evt) {
     let form = editObj.getElementsByTagName("FORM")[0];
     if(!form){
         form = document.createElement("form");
+        form.classList.add("prvek");
+        form.addEventListener("onsubmit", posliform);
         form.setAttribute("action","");
         form.setAttribute("method","POST");
         editObj.appendChild(form);
@@ -678,21 +690,29 @@ function upravPrvek(evt) {
     if (aktPrvek.tagName === "P") {
         upravText(aktPrvek);
     }
+
+    if (aktPrvek.tagName === "FORM") {
+        upravForm(aktPrvek);
+    }
+
     if (aktPrvek.tagName === "INPUT") {
         if(aktPrvek.getAttribute("type") === "submit"){
             upravTlacitko(aktPrvek);
+            return false;
         }else{
             upravInput(aktPrvek);
-
         }
     }
     if (aktPrvek.tagName === "SELECT") {
         upravSelect(aktPrvek);
 
     }
-
+    return false;
 }
 
+function retfals(){
+    return false;
+}
 
 function upravObrazek(edOb) {
     zavriPanel();
@@ -831,11 +851,33 @@ function upravTlacitko(edOb) {
 
 }
 
+function upravForm(edOb){
+    zavriPanel();
+
+    editpanel = document.getElementById("editform");
+    if (editObj) {
+        editObj.classList.remove("editace");
+    }
+    editObj = edOb;
+    editObj.classList.add("editace");
+    let inp = editpanel.getElementsByTagName("INPUT")[0];
+    inp.value = editObj.name;
+
+    editpanel.style.display = "block";
+}
+
 function inputnadpis(evt){
     if (evt.target) {
         aktBlok = evt.target;
     }
     editObj.previousElementSibling.innerHTML = aktBlok.value;
+    editObj.setAttribute("name",aktBlok.value);
+}
+
+function formnazev(evt){
+    if (evt.target) {
+        aktBlok = evt.target;
+    }
     editObj.setAttribute("name",aktBlok.value);
 }
 
@@ -944,7 +986,20 @@ function nabOdkazy() {
 }
 
 function vlozOdkaz(evt,odkaz){
-    let odkA = editObj.getElementsByTagName("A")[0];
+    var odkA;
+    if(editObj.tagName == "DIV") {
+        odkA = editObj.getElementsByTagName("A")[0];
+    }else{
+        odkA = editObj.parentNode;
+        if(odkA.tagName != "A"){
+            let prvNad = odkA;
+            odkA = document.createElement("A");
+            odkA.appendChild(editObj);
+            prvNad.appendChild(odkA);
+            odkA.setAttribute("onclick","return false;")
+
+        }
+    }
     let cesta = odkaz;
     odkA.href =cesta;
     zavridialog(evt);
@@ -958,6 +1013,18 @@ function vlozOdkazURL(evt){
     zavridialog(evt);
 }
 
+function odkazSmaz(evt){
+    var odkA;
+    if(editObj.tagName == "DIV") {
+        odkA = editObj.getElementsByTagName("A")[0];
+    }else{
+        odkA = editObj.parentNode;
+        if(odkA.tagName != "A"){
+            return;
+        }
+    }
+    odkA.href ="#";
+}
 
 function strankaSeznam() {
     editmod();
@@ -1043,6 +1110,13 @@ function nabidkaStranek(data){
     nab.innerHTML = data.obsah;
     nab.addEventListener("click", nactiStranku);
    nab.style.display = "block";
-    
+}
+
+function posliform(){
+//    if (evt.target) {
+//        aktForm = evt.target;
+//    }
+    if(bEditace) {return false;}
+    alert(1);
 }
 

@@ -250,6 +250,10 @@ p.text_L {
     width: 100%;
 }
 
+.pole a[href="#"]{
+    height: 0;
+}
+
 .pole iframe {
     position: relative;
 }
@@ -259,9 +263,18 @@ p.text_L {
 }
 
 
+
+.editace form{
+    border-top: 30px solid #ff00001c;
+}
+
 .nav {
     font-size: 12px;
     width: 100%;
+}
+
+.hod{
+    margin: 10px 0 15px 0;
 }
 
 .pole form {
@@ -564,6 +577,11 @@ img.logo:hover {
     transform: scale(1.4);
 }
 
+img.logopata{
+    max-height: 120px;
+    width:auto;
+    margin: 0 30px;
+}
 
 .block.menu {
     border-bottom: 6px solid #7bc2f5;
@@ -662,6 +680,29 @@ img.logo:hover {
     margin: 15px 30px;
 }
 
+.provnab{
+    position: sticky;
+    top:10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 20;
+    background-color: #669ecfb0;
+    padding: 20px;
+    width: 100%;
+
+}
+
+.provnab a{
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 7px 5px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #8888;
+    color: #666;
+}
+
 .pole.zmensi {
     transform: scale(0.3);
 }
@@ -690,6 +731,11 @@ img.logo:hover {
 .provozovna a:hover {
     color: #1d47d2;
     background-color: #ecebe8;
+}
+
+.nadpiskraj{
+    margin-left: 0px;
+    padding-top: 100px;
 }
 
 .pro_mesto {

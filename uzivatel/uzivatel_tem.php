@@ -106,6 +106,7 @@ class uzivatel_tem extends template {
 
         $vys .= '<div class="dialog formular">';
         $vys .= '   <h2>Volby<img src="./img/iko_zavrit.svg" onclick="zavridialog(event);"></h2>';
+        $vys .= '       <a href="?form/seznam/str=0" class="tlacitko">Formuláře</a>';
         $vys .= '       <a href="?menu/seznam/str=0" class="tlacitko">Menu</a>';
         $vys .= '       <a href="?stranka/editor/typ=T,id=0" class="tlacitko">Úprava stránky</a>';
         $vys .= '       <a href="?provozovna/seznam/str=0" class="tlacitko">Pobočky</a>';
